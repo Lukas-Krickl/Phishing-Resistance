@@ -1,7 +1,7 @@
 "use strict";
 
 const config = {
-  baseURL:"https://Phishing-Resistance.github.io/",
+  baseURL:"https://lukas-krickl.github.io/Phishing-Resistance/",
   files_en:{
     flaws:"data/flaws_en.json",
     authentic_mail:"data/questions/authentic_mail_en.json",
