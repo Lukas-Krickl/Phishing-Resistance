@@ -1,0 +1,45 @@
+[
+  {
+    "name":"E-mail address spoofing",
+    "description":"A mail with a certain e-mail address could be sent by a very different one. The sender's e-mail field can be manipulated easily.",
+    "link":"https://en.wikipedia.org/wiki/Email_spoofing"
+  },
+  {
+    "name":"this is flaw nr. 2",
+    "description":"This is a description to flaw nr.2 ",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"this is flaw nr. 3",
+    "description":"This is a description to flaw nr.3 ",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"this is flaw nr. 4",
+    "description":"This is a description to flaw nr.4 ",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"this is flaw nr. 5",
+    "description":"This is a description to flaw nr.5 ",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"this is flaw nr. 6",
+    "description":"This is a description to flaw nr.6 ",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"this is flaw nr. 7",
+    "description":"This is a description to flaw nr.7 ",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"this is flaw nr. 8",
+    "description":"This is a description to flaw nr.8 ",
+    "link":"http://www.google.com"
+  }
+
+
+
+]

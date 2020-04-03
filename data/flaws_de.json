@@ -1,0 +1,32 @@
+[
+  {
+    "name":"Das ist hinweis nr 1",
+    "description":"Durch diesen hinweis 1 kann man malicious websites erkennen.",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"Das ist hinweis nr 2",
+    "description":"Durch diesen hinweis 2 kann man malicious websites erkennen.",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"Das ist hinweis nr 3",
+    "description":"Durch diesen hinweis 3 kann man malicious websites erkennen.",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"Das ist hinweis nr 4",
+    "description":"Durch diesen hinweis 4 kann man malicious websites erkennen.",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"Das ist hinweis nr 5",
+    "description":"Durch diesen hinweis 5 kann man malicious websites erkennen.",
+    "link":"http://www.google.com"
+  },
+  {
+    "name":"Das ist hinweis nr 6",
+    "description":"Durch diesen hinweis 6 kann man malicious websites erkennen.",
+    "link":"http://www.google.com"
+  }
+]

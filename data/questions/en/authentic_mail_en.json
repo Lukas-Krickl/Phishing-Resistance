@@ -1,0 +1,22 @@
+[
+  {
+    "from":"some-email@address.com",
+    "subject":"this is test data 1",
+    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
+  },
+  {
+    "from":"some-email@address.com",
+    "subject":"this is test data 2",
+    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
+  },
+  {
+    "from":"some-email@address.com",
+    "subject":"this is test data 3",
+    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
+  },
+  {
+    "from":"some-email@address.com",
+    "subject":"this is test data 4",
+    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
+  }
+]

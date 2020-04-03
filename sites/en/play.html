@@ -7,125 +7,78 @@
     <meta name="author" content="Lukas Krickl">
     <title>Phishing Resistance</title>
     <link href="https://fonts.googleapis.com/css?family=Rasa:400,600&display=swap" rel="stylesheet">
-    <link rel="icon" href="../../assets/pr-icons/phishing-resistance-symbols-white.svg" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="../../assets/pr-icons/phishing-resistance-symbol-white.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css">
+    <script type="text/javascript">
+      const language = "EN";
+    </script>
   </head>
   <body>
     <div class="page">
       <header>
-        <img src="../../assets/pr-icons/phishing-resistance-logo-lg.svg" height="60px" alt="Phishing Resistance">
+        <a href="../.././index.html"><img src="../../assets/pr-icons/phishing-resistance-logo-lg.svg" height="60px" alt="Phishing Resistance"></a>
         <nav >
           <a href="howto.html">How To</a>
           <a class="active" href="play.html">Play</a>
           <a href="results.html">Results</a>
           <a href="about.html">About</a>
-          <a href="../de/play.html"><img src="../../assets/icons/DE.svg" height="40px" alt="Deutsch"></a>
-          <a href="../en/play.html"><img src="../../assets/icons/UK.svg" height="40px" alt="English"></a>
+          <a href="../de/play.html"><img src="../../assets/icons/AT.svg" height="30px" alt="Deutsch"></a>
+          <a href="../en/play.html"><img src="../../assets/icons/EN.svg" height="30px" alt="English"></a>
         </nav>
       </header>
       <h3 class="question-header">Is this authentic or a phishing attack?</h3>
       <main>
-          <div class="hints">
+          <div class="hints" hidden id="hintBox">
             <h4>How you could identify this attack:</h4>
-            <ul>
-              <li>
-                <p>This is a bulletpoint with a hint on how to spot phishing tricks.</p>
-                <a href="#">(more information)</a>
-              </li>
-              <li>
-                <p>This is a bulletpoint with a hint on how to spot phishing tricks.
-                  But now we have more text to genereate some lines. But now we have more text to genereate some lines well i select
-                  This is a bulletpoint with a hint on how to spot phishing tricks but this time the explanation of the hint is a bit longer so it takes multiple lines to tell the users on how to spot some lorem ipsum dolor sit amet.
-                  But now we have more text to genereate some lines
-                </p>
-                <a href="#">(more information)</a>
-              </li>
-              <li>
-                <p>This is a bulletpoint with a hint on how to spot phishing tricks.</p>
-                <a href="#">(more information)</a>
-              </li>
+            <ul id="hintList">
             </ul>
           </div>
           <div class="question">
-            <div class="web" hidden>
-              <div class="browser" >
-                <img src="..\..\assets\icons\browser-ctrl.svg" alt=" " >
-                <div class="">
-
+            <div class="web hidden" id="webBlock">
+              <div class="browser-header" >
+                <img class="browser-controls" src="../../assets/icons/browser-ctrl.svg" height="15px" alt=" " >
+                <div class="url-box">
+                  <img src="../../assets/icons/lock-closed.svg" height="18px" alt="lock" id="browserLock">
+                  <span id="browserUrl">https://some-url.com</span>
                 </div>
               </div>
-              <img src="..\..\questions\no-phishing\web\erste_-web.jpg" alt="">
+              <div class="browser-content">
+                <img src="../../data/questions/no-phishing/screenshots/amazon-de.jpg" alt="browser content" id="browserContent">
+              </div>
             </div>
-            <div class="mail">
-
-              <img class="mail-icon" src="..\..\assets\icons\envelope-open.svg" height="30px" alt="" >
-
-              <div class="mail-header">
+            <div class="mail" id="mailBlock">
+              <img class="mail-icon" src="../../assets/icons/mail_outline.svg" height="30px" alt="">
+              <div class="mail-header" id="mailHeader">
                 <h5>From:</h5>
                 <span>checker2000@gmail.com</span>
                 <h5>Subject:</h5>
                 <span>Congratulation you won the contest!</span>
               </div>
 
-              <div class="mail-content">
-                <p>
-                  Congratulations you have won the contest of Wikipedia!<br>
-                  <br>
-                  <br>
-                  We since the beginning of Wikipedia we counted every user reading our articles<br>
-                  and you were the 1 000 000 person visiting our website.<br>
-                  <br>
-                  As a whole comunity we are proud of the success of Wikipedia and we like to show
-                  that we are thankfull for your support.<br>
-                  <br>
-                  So we are giving away 500$ to a number of visitors.<br>
-                  <br>
-                  To receive your prize click on the link below so we can contact you.<br>
-                  <br>
-                  <a>https://bit.ly/d7jdHF9I84jsa/</a><br>
-                  <br>
-                  thanks your Wikipedia team.<br>
-
-                  As a whole comunity we are proud of the success of Wikipedia and we like to show
-                  that we are thankfull for your support.<br>
-                  <br>
-                  So we are giving away 500$ to a number of visitors.<br>
-                  <br>
-                  To receive your prize click on the link below so we can contact you.<br>
-                  <br>
-
-                  As a whole comunity we are proud of the success of Wikipedia and we like to show
-                  that we are thankfull for your support.<br>
-                  <br>
-                  So we are giving away 500$ to a number of visitors.<br>
-                  <br>
-                  To receive your prize click on the link below so we can contact you.<br>
-                  <br>
-                </p>
-              </div>
+              <p class="mail-content" id="mailContent">
+                There is some content in this mail
+              </p>
             </div>
           </div>
       </main>
-      <section>
+      <section id="answerSection">
         <!-- answers -->
-        <button class="btn btn-green" type="button" name="button" hidden>That's OK</button>
-        <button class="btn btn-red" type="button" name="button" hidden>Phishing</button>
+        <button class="btn btn-green" type="button" name="button">That's OK</button>
+        <button class="btn btn-red" type="button" name="button" onclick="playModule.hintController.display(true)">Phishing</button>
         <!-- answered -->
-        <span class="btn btn-green" type="button" name="button"hidden>That's OK</span>
-        <span class="btn btn-red" type="button" name="button">Phishing</span>
-        <button class="btn btn-blue" type="button" name="button" >Next</button>
-        <div class="correct-feedback">
-          <span >Correct!</span>
+        <button class="btn btn-blue" type="button" name="button" hidden>Next</button>
+        <div class="correct-feedback" >
+          Correct!
         </div>
-
-
       </section>
-      <footer>Illustrations Designed by macrovector / Freepik</footer>
+      <footer>Illustrations designed by macrovector<a href="http://www.freepik.com"> / Freepik</a></footer>
     </div>
     <div class="illustrations">
       <img src="../../assets/illustrations/fisher4.jpg" height="280px" alt=" ">
-      <img src="../../assets/illustrations/fisher3.jpg" height="300px" alt=" ">
+      <img src="../../assets/illustrations/fisher13.jpg" height="250px" alt=" ">
     </div>
-  <script src="../../js/main-script.js"></script>
+  <script type="text/javascript" src="../../js/config.js"></script>
+  <script type="text/javascript" src="../../js/controller.js"></script>
+  <script type="text/javascript" src="../../js/play_script.js"></script>
   </body>
 </html>
