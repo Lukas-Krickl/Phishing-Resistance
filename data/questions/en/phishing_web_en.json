@@ -3,25 +3,25 @@
     "url":"https://example-url-1",
     "ssl": true,
     "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "faults" : [0,2,4]
+    "flaws" : [0,2,4]
   },
   {
     "url":"https://example-url-2",
     "ssl": true,
     "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "faults" : [0,2,4]
+    "flaws" : [0,2,4]
   },
   {
     "url":"http://example-url-3",
     "ssl": false,
     "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "faults" : [0,2,4]
+    "flaws" : [0,2,4]
   },
   {
     "url":"http://example-url-4",
     "ssl": false,
     "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "faults" : [0,2,4]
+    "flaws" : [0,2,4]
   }
 
 

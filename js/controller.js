@@ -7,13 +7,13 @@ const controllerModule = (function () {
     hintList : document.getElementById('hintList'),
 
     //takes array with flaws objects and apends to ul
-    addHints : function (hints) {
+    setHints : function (hints) {
+      this.hintList.innerHTML = "";
       let fragment = document.createDocumentFragment();
-      let length = hints.length;
-      for (let i = 0; i < length; i++) {
+      for (let i = 0; i < hints.length; i++) {
         fragment.appendChild(createHintListItem(hints[i]));
       }
-      hints.appendChild(fragment);
+      this.hintList.appendChild(fragment);
     },
 
     createHintListItem : function (hint) {
@@ -37,11 +37,7 @@ const controllerModule = (function () {
     },
 
     display : function (show) {
-      hintBox.hidden = !show;
-    },
-
-    clear : function () {
-      hintList.innerHTML = "";
+      this.hintBox.classList.toggle("hidden", !show);
     }
   };
 
@@ -63,26 +59,26 @@ const controllerModule = (function () {
     },
 
     displayWeb: function (webJson) {
-      webSection.webBlock.classList.toggle(hidden, false);
-      mailSection.mailBlock.classList.toggle(hidden, true);
+      this.webSection.webBlock.classList.toggle("hidden", false);
+      this.mailSection.mailBlock.classList.toggle("hidden", true);
 
       //set ssl lock
       if (webJson.ssl) {
-        webSection.browserLock.src = "../../assets/icons/lock-closed.svg";
+        this.webSection.browserLock.src = "../../assets/icons/lock-closed.svg";
       } else {
-        webSection.browserLock.src = "../../assets/icons/lock-open.svg";
+        this.webSection.browserLock.src = "../../assets/icons/lock-open.svg";
       }
 
       //set browser url
-      webSection.browserUrl.innerHTML = webJson.url;
+      this.webSection.browserUrl.innerHTML = webJson.url;
 
       //set browser content
-      webSection.browserContent.src = webJson.file;
+      this.webSection.browserContent.src = webJson.file;
     },
 
     displayMail: function (mailJson) {
-      mailSection.mailBlock.classList.toggle(hidden, false);
-      webSection.webBlock.classList.toggle(hidden, true);
+      this.mailSection.mailBlock.classList.toggle("hidden", false);
+      this.webSection.webBlock.classList.toggle("hidden", true);
 
       let fragment = document.createDocumentFragment();
       let fromHeader = document.createElement("h5");
@@ -90,23 +86,68 @@ const controllerModule = (function () {
       let subjectHeader = document.createElement("h5");
       let subjectContent = document.createElement("span");
 
-      fromHeader.innerHTML = mailSection.fromText;
+      fromHeader.innerHTML = this.mailSection.fromText;
       fromContent.innerHTML = mailJson.from;
-      subjectHeader.innerHTML = mailSection.subjectText;
+      subjectHeader.innerHTML = this.mailSection.subjectText;
       subjectContent.innerHTML = mailJson.subject;
       fragment.appendChild(fromHeader);
       fragment.appendChild(fromContent);
       fragment.appendChild(subjectHeader);
       fragment.appendChild(subjectContent);
 
-      mailSection.mailHeader.innerHTML = fragment; //test if this works
-      mailSection.mailContent.innerHTML = mailJson.content;
+      this.mailSection.mailHeader.innerHTML = "";
+      this.mailSection.mailHeader.appendChild(fragment);
+      this.mailSection.mailContent.innerHTML = mailJson.content;
     }
+  };
 
+  var gameController = {
+    authenticBTN : document.getElementById('authenticBTN'),
+    phishingBTN : document.getElementById('phishingBTN'),
+    nextBTN : document.getElementById('nextBTN'),
+    resultFeedback: document.getElementById('resultFeedback'),
+    feedbackTextCorrect : language === "DE" ? "Richtig!" : "Correct!",
+    feedbackTextIncorrect : language === "DE" ? "Falsch!" : "Incorrect!",
+
+    toggleFeedback : function (show=false, correct, phishing) {
+      if (show) {
+        if (correct) {
+          this.resultFeedback.classList.toggle("correct", true);
+          this.resultFeedback.classList.toggle("incorrect", false);
+          this.resultFeedback.innerHTML = this.feedbackTextCorrect;
+          this.resultFeedback.classList.toggle("hidden", false);
+
+        } else {
+          this.resultFeedback.classList.toggle("incorrect", true);
+          this.resultFeedback.classList.toggle("correct", false);
+          this.resultFeedback.innerHTML = this.feedbackTextIncorrect;
+          this.resultFeedback.classList.toggle("hidden", false);
+        }
+
+        if (phishing) {
+          this.phishingBTN.disabled = true;
+          this.authenticBTN.classList.toggle("hidden", true);
+        } else {
+          this.authenticBTN.disabled = true;
+          this.phishingBTN.classList.toggle("hidden", true);
+        }
+        this.nextBTN.classList.toggle("hidden", false);
+
+      } else {
+        //enable disabled btns hide feedback and next btn
+        this.resultFeedback.classList.toggle("hidden", true);
+        this.nextBTN.classList.toggle("hidden", true);
+        this.phishingBTN.disabled = false;
+        this.phishingBTN.classList.toggle("hidden", false);
+        this.authenticBTN.disabled = false;
+        this.authenticBTN.classList.toggle("hidden", false);
+      }
+    }
   };
 
   return {
     hintController:hintController,
-    questionController:questionController
+    questionController:questionController,
+    gameController : gameController
   }
 })();

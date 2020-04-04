@@ -402,10 +402,18 @@ li a {
   overflow-y: auto;
 }
 
-.correct-feedback {
+.feedback {
   height: 30px;
   font-size: 1.5rem;
+
+}
+
+.correct {
   color: var(--green-color);
+}
+
+.incorrect {
+    color: var(--red-color);
 }
 
 

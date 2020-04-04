@@ -46,29 +46,24 @@
                 <img src="../../data/questions/no-phishing/screenshots/amazon-de.jpg" alt="browser content" id="browserContent">
               </div>
             </div>
-            <div class="mail" id="mailBlock">
+            <div class="mail hidden" id="mailBlock">
               <img class="mail-icon" src="../../assets/icons/mail_outline.svg" height="30px" alt="">
               <div class="mail-header" id="mailHeader">
-                <h5>From:</h5>
-                <span>checker2000@gmail.com</span>
-                <h5>Subject:</h5>
-                <span>Congratulation you won the contest!</span>
+                <!-- mail header -->
               </div>
-
               <p class="mail-content" id="mailContent">
-                There is some content in this mail
+                <!-- mail content -->
               </p>
             </div>
           </div>
       </main>
-      <section id="answerSection">
+      <section>
         <!-- answers -->
-        <button class="btn btn-green" type="button" name="button">That's OK</button>
-        <button class="btn btn-red" type="button" name="button" onclick="playModule.hintController.display(true)">Phishing</button>
+        <button class="btn btn-green" type="button" name="authentic" id="authenticBTN" disabled="false">That's OK</button>
+        <button class="btn btn-red" type="button" name="phishing" id="phishingBTN" disabled="false">Phishing</button>
         <!-- answered -->
-        <button class="btn btn-blue" type="button" name="button" hidden>Next</button>
-        <div class="correct-feedback" >
-          Correct!
+        <button class="btn btn-blue hidden" type="button" name="next" id="nextBTN">Next</button>
+        <div class="feedback hidden" id="resultFeedback">
         </div>
       </section>
       <footer>Illustrations designed by macrovector<a href="http://www.freepik.com"> / Freepik</a></footer>
