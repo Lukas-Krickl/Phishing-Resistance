@@ -281,6 +281,11 @@ li a {
   display: none !important;
 }
 
+.version {
+  color: var(--light-text);
+  margin-left: 1rem;
+}
+
 .hints {
   max-width: 25rem;
   min-width: 10rem;
