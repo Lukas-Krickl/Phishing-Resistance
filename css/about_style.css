@@ -1,0 +1,60 @@
+
+.about-main {
+  grid-row: 2 / 5;
+  justify-self:center;
+  max-width: 38rem;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
+
+.about-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.about-heading li {
+  margin: 0;
+  padding: 0;
+}
+
+.about-heading ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  line-height: 127.6%;
+}
+
+.about-main p {
+  font-size: 1.25rem;
+  line-height: 127.6%;
+  text-align: justify;
+}
+
+.about-main h4 {
+  text-align: center;
+}
+
+.about-thanks p {
+  text-align: center;
+}
+
+.about-licence {
+  background-color: var(--light-bg);
+    padding: 1rem;
+}
+
+.about-licence table {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.about-licence th {
+  padding: 0.25rem 1rem;
+  font-weight: 400;
+  max-width: 7rem;
+}

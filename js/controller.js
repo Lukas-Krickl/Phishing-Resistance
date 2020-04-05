@@ -11,7 +11,7 @@ const controllerModule = (function () {
       this.hintList.innerHTML = "";
       let fragment = document.createDocumentFragment();
       for (let i = 0; i < hints.length; i++) {
-        fragment.appendChild(createHintListItem(hints[i]));
+        fragment.appendChild(this.createHintListItem(hints[i]));
       }
       this.hintList.appendChild(fragment);
     },
@@ -22,7 +22,7 @@ const controllerModule = (function () {
       let p = document.createElement("p");
       let linkText = language === "DE" ? "(mehr Information)" : "(more information)";
 
-      h6.innerHTML = hint.title;
+      h6.innerHTML = hint.name;
       li.appendChild(h6);
       p.innerHTML = hint.description;
       li.appendChild(p);
@@ -37,12 +37,20 @@ const controllerModule = (function () {
     },
 
     display : function (show) {
-      this.hintBox.classList.toggle("hidden", !show);
+      if (show) {
+        this.hintBox.classList.remove("slide-out-top", "hint-hidden");
+        setTimeout(function () {
+          this.hintBox.classList.remove("hint-text-hidden");
+        }, 1100);
+      } else {
+        this.hintBox.classList.add("slide-out-top", "hint-text-hidden", "hint-hidden");
+      }
     }
   };
 
   //controller for the question section
   const questionController = {
+    questionBlock: document.getElementById('questionBlock'),
     webSection : {
       webBlock : document.getElementById('webBlock'),
       browserLock : document.getElementById('browserLock'),
@@ -54,8 +62,8 @@ const controllerModule = (function () {
       mailBlock : document.getElementById('mailBlock'),
       mailHeader : document.getElementById('mailHeader'),
       mailContent : document.getElementById('mailContent'),
-      fromText : language === "DE" ? "Absender" : "From",
-      subjectText : language === "DE" ? "Betreff" : "Subject"
+      fromText : language === "DE" ? "Absender:" : "From:",
+      subjectText : language === "DE" ? "Betreff:" : "Subject:"
     },
 
     displayWeb: function (webJson) {
@@ -105,42 +113,67 @@ const controllerModule = (function () {
     authenticBTN : document.getElementById('authenticBTN'),
     phishingBTN : document.getElementById('phishingBTN'),
     nextBTN : document.getElementById('nextBTN'),
-    resultFeedback: document.getElementById('resultFeedback'),
-    feedbackTextCorrect : language === "DE" ? "Richtig!" : "Correct!",
-    feedbackTextIncorrect : language === "DE" ? "Falsch!" : "Incorrect!",
+    questionTitle: document.getElementById('questionTitle'),
+    text : {
+      question: language === "DE" ? config.question_text_de.question : config.question_text_en.question,
+      correctPhish: language === "DE" ? config.question_text_de.correctPhish : config.question_text_en.correctPhish,
+      incorrectPhish: language === "DE" ? config.question_text_de.incorrectPhish : config.question_text_en.incorrectPhish,
+      correctAuth: language === "DE" ? config.question_text_de.correctAuth : config.question_text_en.correctAuth,
+      incorrectAuth: language === "DE" ? config.question_text_de.incorrectAuth : config.question_text_en.incorrectAuth
+    },
 
     toggleFeedback : function (show=false, correct, phishing) {
       if (show) {
-        if (correct) {
-          this.resultFeedback.classList.toggle("correct", true);
-          this.resultFeedback.classList.toggle("incorrect", false);
-          this.resultFeedback.innerHTML = this.feedbackTextCorrect;
-          this.resultFeedback.classList.toggle("hidden", false);
-
-        } else {
-          this.resultFeedback.classList.toggle("incorrect", true);
-          this.resultFeedback.classList.toggle("correct", false);
-          this.resultFeedback.innerHTML = this.feedbackTextIncorrect;
-          this.resultFeedback.classList.toggle("hidden", false);
-        }
-
         if (phishing) {
-          this.phishingBTN.disabled = true;
-          this.authenticBTN.classList.toggle("hidden", true);
+          if (correct) {
+            //phishing and correct
+            this.questionTitle.innerHTML = this.text.correctPhish;
+            this.questionTitle.classList.add("correct", "text-focus-in");
+
+          } else {
+            //phishing and incorrect
+            this.questionTitle.innerHTML = this.text.incorrectPhish;
+            this.questionTitle.classList.add("incorrect", "text-focus-in");
+          }
+          //mark wrong btn
+          this.authenticBTN.classList.add("btn-wrong");
         } else {
-          this.authenticBTN.disabled = true;
-          this.phishingBTN.classList.toggle("hidden", true);
+          if (correct) {
+            //authentic and correct
+            this.questionTitle.innerHTML = this.text.correctAuth;
+            this.questionTitle.classList.add("correct", "text-focus-in");
+
+          } else {
+            //authentic and incorrect
+            this.questionTitle.innerHTML = this.text.incorrectAuth;
+            this.questionTitle.classList.add("incorrect", "text-focus-in");
+          }
+          //mark wrong btn
+          this.phishingBTN.classList.toggle("btn-wrong", true);
         }
-        this.nextBTN.classList.toggle("hidden", false);
+        //show next button
+        this.phishingBTN.disabled = true;
+        this.authenticBTN.disabled = true;
+        this.nextBTN.disabled = false;
+        this.nextBTN.classList.toggle("invisible", false);
 
       } else {
-        //enable disabled btns hide feedback and next btn
-        this.resultFeedback.classList.toggle("hidden", true);
-        this.nextBTN.classList.toggle("hidden", true);
-        this.phishingBTN.disabled = false;
-        this.phishingBTN.classList.toggle("hidden", false);
-        this.authenticBTN.disabled = false;
-        this.authenticBTN.classList.toggle("hidden", false);
+        //enable disabled btns hide, feedback and next btn
+
+        this.questionTitle.classList.replace("text-focus-in", "text-blur-out")
+        setTimeout(function () {
+          gameController.questionTitle.classList.remove("incorrect", "correct");
+          gameController.questionTitle.innerHTML = gameController.text.question;
+          gameController.nextBTN.classList.add("invisible");
+          gameController.nextBTN.disabled = true;
+          gameController.phishingBTN.disabled = false;
+          gameController.phishingBTN.classList.remove("btn-wrong");
+          gameController.authenticBTN.disabled = false;
+          gameController.authenticBTN.classList.remove("btn-wrong");
+          //fade in animation
+          gameController.questionTitle.classList.replace("text-blur-out", "text-focus-in");
+        }, 1000); //delay = time of text blur out animation
+
       }
     }
   };

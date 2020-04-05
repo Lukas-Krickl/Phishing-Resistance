@@ -1,22 +1,7 @@
 [
   {
-    "from":"some-email@address.com",
-    "subject":"this is test data 1",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
-  },
-  {
-    "from":"some-email@address.com",
-    "subject":"this is test data 2",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
-  },
-  {
-    "from":"some-email@address.com",
-    "subject":"this is test data 3",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
-  },
-  {
-    "from":"some-email@address.com",
-    "subject":"this is test data 4",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>"
+    "from":"jobs-listings@linkedin.com",
+    "subject":"Marketing Company is looking for: IT Specialist",
+    "content":"Top job picks for you<br>Summer Students 2020 (m/f)<br>Vienna, AT<br><a>to job offer</a><br><br>PHP Developer (m/f/d) with Laravel Skills<br>Munich, DE<br><a>to job offer</a><br><br>Cisco Associate Solutions Engineer - Bachelor/Master (Graduate)<br>Vienna, AT <br><a>to job offer</a>"
   }
 ]

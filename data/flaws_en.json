@@ -5,41 +5,25 @@
     "link":"https://en.wikipedia.org/wiki/Email_spoofing"
   },
   {
-    "name":"this is flaw nr. 2",
-    "description":"This is a description to flaw nr.2 ",
-    "link":"http://www.google.com"
+    "name":"Domain permutation",
+    "description":"Website URLs could be faked easily by altering a letter or switching some words so that they look very similar to the original one. Be carefull with familiar looking links too.",
+    "link":"https://en.wikipedia.org/wiki/Typosquatting"
   },
   {
-    "name":"this is flaw nr. 3",
-    "description":"This is a description to flaw nr.3 ",
-    "link":"http://www.google.com"
+    "name":"Spoofed websites",
+    "description":"The seemingly authentic appearance of a website doesn't grant for safe use. The website's user interface can be copied easily with some tools.",
+    "link":"https://www.phishing.org/phishing-and-spoofing"
   },
   {
-    "name":"this is flaw nr. 4",
-    "description":"This is a description to flaw nr.4 ",
-    "link":"http://www.google.com"
+    "name":"Unsecure connection",
+    "description":"The lock in your browser near the URL indicates if the connection is encrypted or not. The open lock signals a unencrypted http connection where all your data is transmitted like a open book. Never enter passwords on a website with a open lock. If you see a closed lock in your browser, a encrypted connection is used and your passwords arrive safe on the other end.",
+    "link":""
   },
   {
-    "name":"this is flaw nr. 5",
-    "description":"This is a description to flaw nr.5 ",
-    "link":"http://www.google.com"
+    "name":"Question everything",
+    "description":"Random lottery winns or dangerous virus attacks. Attackers will put you under pressure so you do stupid things. Don't do stupid things and don't believe everything.",
+    "link":""
   },
-  {
-    "name":"this is flaw nr. 6",
-    "description":"This is a description to flaw nr.6 ",
-    "link":"http://www.google.com"
-  },
-  {
-    "name":"this is flaw nr. 7",
-    "description":"This is a description to flaw nr.7 ",
-    "link":"http://www.google.com"
-  },
-  {
-    "name":"this is flaw nr. 8",
-    "description":"This is a description to flaw nr.8 ",
-    "link":"http://www.google.com"
-  }
-
 
 
 ]

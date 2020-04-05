@@ -1,28 +1,8 @@
 [
   {
-    "url":"https://example-url-1",
+    "url":"https://sso.raifeisen.at/login/#/identifier/verfueger",
     "ssl": true,
-    "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "flaws" : [0,2,4]
-  },
-  {
-    "url":"https://example-url-2",
-    "ssl": true,
-    "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "flaws" : [0,2,4]
-  },
-  {
-    "url":"http://example-url-3",
-    "ssl": false,
-    "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "flaws" : [0,2,4]
-  },
-  {
-    "url":"http://example-url-4",
-    "ssl": false,
-    "file": "../../data/questions/en/phishing_screenshots/filename.jpg",
-    "flaws" : [0,2,4]
+    "file": "../../data/questions/en/phishing_screenshots/raika-ss1p.jpg",
+    "flaws" : [1,2]
   }
-
-
 ]

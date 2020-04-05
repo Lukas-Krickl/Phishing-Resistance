@@ -1,24 +1,32 @@
 [
   {
-    "url":"https://example-url-1",
+    "url":"https://george.sparkasse.at",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/filename.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/erstebank-ss1a.jpg"
   },
   {
-    "url":"https://example-url-2",
+    "url":"https://login.sparkasse.at/sts/oauth/authorize?response_type=token&client_id=georgeclient",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/filename.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/erstebank-ss1a.jpg"
   },
   {
-    "url":"http://example-url-3",
-    "ssl": false,
-    "file": "../../data/questions/en/authentic_screenshots/filename.jpg"
+    "url":"https://www.amazon.com",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/amazon-ss2a.jpg"
   },
   {
-    "url":"http://example-url-4",
-    "ssl": false,
-    "file": "../../data/questions/en/authentic_screenshots/filename.jpg"
+    "url":"https://www.facebook.com",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/facebook-ss3a.jpg"
+  },
+  {
+    "url":"https://www.paypal.com/signin",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/paypal-ss4a.jpg"
+  },
+  {
+    "url":"https://sso.raiffeisen.at/login/#/identifier/verfueger",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/raika-ss5a.jpg"
   }
-
-
 ]

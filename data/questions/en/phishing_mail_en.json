@@ -1,26 +1,8 @@
 [
   {
-    "from":"some-email@address.com",
-    "subject":"this is test data 1",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>",
-    "flaws":[1,2,3]
-  },
-  {
-    "from":"some-email@address.com",
-    "subject":"this is test data 2",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>",
-    "flaws":[1,2,3]
-  },
-  {
-    "from":"some-email@address.com",
-    "subject":"this is test data 3",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>",
-    "flaws":[1,2,3]
-  },
-  {
-    "from":"some-email@address.com",
-    "subject":"this is test data 4",
-    "content":"there <br> is <br> a <br> linebreak <br><br> after some words but <a>here-is-a-link</a>",
-    "flaws":[1,2,3]
+    "from":"checker2000@gmail.com",
+    "subject":"Congratulation you won the contest!",
+    "content":"Congratulations you have won the contest of Wikipedia!<br><br>We since the beginning of Wikipedia we counted every user reading our articles and you were the 1 000 000 person visiting our website.<br><br>So we are giving away 500$ to a number of visitors.<br>To receive your prize click on the link below so we can contact you.<br><br><a>https://bit.ly/d7jdHF9I84jsa/</a><br><br>thanks your Wikipedia team. ",
+    "flaws":[4]
   }
 ]
