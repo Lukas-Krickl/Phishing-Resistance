@@ -126,13 +126,14 @@
 }
 
 .bar-chart {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
   display: flex;
   justify-content: space-between;
-  background-image: repeating-linear-gradient(0deg, hsla(66,43%,35%,0.09) 0px, hsla(66,43%,35%,0.09) 1px,transparent 1px, transparent 11px),repeating-linear-gradient(90deg, hsla(66,43%,35%,0.09) 0px, hsla(66,43%,35%,0.09) 1px,transparent 1px, transparent 11px),linear-gradient(90deg, hsl(120,3%,92%),hsl(120,3%,92%));
+  background-image: repeating-linear-gradient(0deg, rgb(220, 220, 220) 0px, rgb(220, 220, 220) 1px,transparent 1px, transparent 21px),repeating-linear-gradient(90deg, rgb(220, 220, 220) 0px, rgb(220, 220, 220) 1px,transparent 1px, transparent 21px),linear-gradient(90deg, hsl(106,0%,96%),hsl(106,0%,96%));
   max-width: 20rem;
   height: 80%;
   align-self: center;
-
 }
 
 .bar-chart-bar {
@@ -142,6 +143,30 @@
   /* scale-up-ver-bottom */
   -webkit-animation: scale-up-ver-bottom 0.6s ;
 	        animation: scale-up-ver-bottom 0.6s ;
+}
+
+@media only screen and (max-width: 650px) {
+  .result-detailed {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 40vh 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .result-detailed table {
+    width: 90%;
+    max-width: inherit;
+    margin: 0 5%;
+  }
+
+  .bar-chart {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    width: 90%;
+    max-width: inherit;
+    margin: 0 5%;
+  }
 }
 
 

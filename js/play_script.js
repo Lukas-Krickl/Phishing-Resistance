@@ -1,13 +1,32 @@
 "use strict";
 var playModule = (function () {
   const controller = controllerModule;
-  var data = {
+  var data = {  //attributes used for automatic file loading, if changed, -> change loadData function
     flaws:"",
     authentic_mail:"",
     authentic_web:"",
     phishing_mail:"",
     phishing_web:""
   };
+
+  // rates are calculated relative to subgroup eg phishingRate + authenticRate =1
+  var questionDistribution = {
+    total: 0,
+    web: {
+      webRate: 0.5,
+      phishing: 0,
+      phishingRate: 0.5,
+      authentic:0,
+      authenticRate:0.5
+    },
+    mail : {
+      mailRate: 0.5,
+      phishing: 0,
+      phishingRate: 0.5,
+      authentic:0,
+      authenticRate:0.5
+    }
+  }
 
   //cookie is a array with amount [correct phish, correct auth, missed phish, missed auth]
   var userStats;
@@ -29,6 +48,16 @@ var playModule = (function () {
     answered:false
   };
 
+  function calcQuestionDistribution() {
+    questionDistribution.web.phishingRate = (questionDistribution.web.phishing / (questionDistribution.web.phishing + questionDistribution.web.authentic)).toFixed(2);
+    questionDistribution.web.authenticRate = (1 - questionDistribution.web.phishingRate).toFixed(2);
+    questionDistribution.mail.phishingRate = (questionDistribution.mail.phishing / (questionDistribution.mail.phishing + questionDistribution.mail.authentic)).toFixed(2);
+    questionDistribution.mail.authenticRate = (1 - questionDistribution.mail.phishingRate).toFixed(2);
+    questionDistribution.web.webRate = ((questionDistribution.web.phishing + questionDistribution.web.authentic) / questionDistribution.total).toFixed(2);
+    questionDistribution.mail.mailRate = (1-questionDistribution.web.webRate).toFixed(2);
+    console.log("question distribution: "+JSON.stringify(questionDistribution));
+  }
+
   function errorScreen(reason) {
     // TODO: for testing until error screen exists
     console.log("ERROR SCREEN PRINTS: "+ reason);
@@ -36,55 +65,46 @@ var playModule = (function () {
 
   //prepares first question
   function init() {
-    let entryScreen = document.getElementById('entryScreen');
-    setTimeout(function () {
-      entryScreen.classList.add("invisible");
-      //select and display new question after question slided out
-    }, 2000);
-    setTimeout(function () {
-      entryScreen.classList.add("hidden");
-      //select and display new question after question slided out
-    }, 3000);
+    calcQuestionDistribution();
+    //show entry screen only if new user visits page
+    controller.showEntryScreen(!document.cookie);
     selectQuestion();
+    controller.questionController.questionBlock.classList.replace("hidden", "slide-in-top");
     console.log("initialized");
-
-
-
   }
 
   //randomly selects any question
   function selectQuestion() {
     let question;
-    //select web or mail
-    currentQuestion.web = (Math.random()<0.5);
-    //select phishing or authentic
-    currentQuestion.phishing = (Math.random()<0.5);
-    //get question from file
+    //randomly select web or mail based on distribution
+    currentQuestion.web = (Math.random() < questionDistribution.web.webRate);
+
     if (currentQuestion.web) {
+      //randomly select phish or auth based on distribution
+      currentQuestion.phishing = (Math.random() < questionDistribution.web.phishingRate);
       if (currentQuestion.phishing) {
         //web phishing
         question = data.phishing_web[getRandomIndex(data.phishing_web.length)];
         controller.questionController.displayWeb(question);
-        console.log("selected question: "+JSON.stringify(question));
         fillHints(question);
       } else {
         //web authentic
         question = data.authentic_web[getRandomIndex(data.authentic_web.length)];
         controller.questionController.displayWeb(question);
-        console.log("selected question: "+JSON.stringify(question));
       }
     } else {
+      //its mail
+      //randomly select phish or auth based on distribution
+      currentQuestion.phishing = (Math.random() < questionDistribution.mail.phishingRate);
       if (currentQuestion.phishing) {
         //mail phishing
         question = data.phishing_mail[getRandomIndex(data.phishing_mail.length)];
         controller.questionController.displayMail(question);
-        console.log("selected question: "+JSON.stringify(question));
         fillHints(question);
       } else {
         //mail authentic
         question = data.authentic_mail[getRandomIndex(data.authentic_mail.length)];
         controller.questionController.displayMail(question);
-        console.log("selected question: "+JSON.stringify(question));
       }
     }
   }
@@ -97,7 +117,6 @@ var playModule = (function () {
   function fillHints(question) {
     if (question.hasOwnProperty("flaws")) {
       let hints = [];
-      console.log("show hints of question: "+JSON.stringify(question));
       for (var i = 0; i < question.flaws.length; i++) {
         hints.push(data.flaws[question.flaws[i]]);
       }
@@ -162,6 +181,9 @@ var playModule = (function () {
   //store given object in 'filename' variable of data object
   function storeJson(convertedJson, fileName) {
     data[fileName] = convertedJson;
+    //set question amount
+    setquestionDistribution(fileName);
+
     console.log(fileName + " successfully loaded");
     //travers all files in data, if all are loaded call init()
     for (let i = 0; i < fileCount; i++) {
@@ -172,21 +194,50 @@ var playModule = (function () {
     init();
   }
 
+  function setquestionDistribution(fileName) {
+    switch (fileName) {
+      case "authentic_mail" :
+        questionDistribution.mail.authentic = data[fileName].length;
+        questionDistribution.total += questionDistribution.mail.authentic;
+        break;
+
+      case "authentic_web" :
+        questionDistribution.web.authentic = data[fileName].length;
+        questionDistribution.total += questionDistribution.web.authentic;
+        break;
+
+      case "phishing_mail" :
+        questionDistribution.mail.phishing = data[fileName].length;
+        questionDistribution.total += questionDistribution.mail.phishing;
+        break;
+
+      case "phishing_web" :
+        questionDistribution.web.phishing = data[fileName].length;
+        questionDistribution.total += questionDistribution.web.phishing;
+        break;
+    }
+  }
+
   //load data and start initialisation
   loadData();
+
+
+  document.getElementById('expandedImgClose').addEventListener("click", function () {
+    controller.expandedImgContainer.classList.add("hidden");
+  });
+
+  controller.questionController.webSection.browserContentImg.addEventListener("click", function () {
+    controller.expandedImgContainer.classList.remove("hidden");
+  });
 
   // phishing btn event listener
   controller.gameController.phishingBTN.addEventListener("click", function () {
     evaluateAnswer("phishing");
-    //for css animation
-    controller.questionController.questionBlock.classList.remove("slide-in-top");
   });
 
   // authentic btn eventlistener
   controller.gameController.authenticBTN.addEventListener("click", function () {
     evaluateAnswer("authentic");
-    //for css animation
-    controller.questionController.questionBlock.classList.remove("slide-in-top");
   });
 
   //next btn eventlistener
@@ -199,14 +250,11 @@ var playModule = (function () {
     //reset question answer
     currentQuestion.answered = false;
     //play exit css animation
-    questionBlock.classList.add("slide-out-top");
+    questionBlock.classList.replace("slide-in-top","slide-out-top");
     setTimeout(function () {
-      questionBlock.classList.remove("slide-out-top");
       //select and display new question after question slided out
       selectQuestion();
+      questionBlock.classList.replace("slide-out-top", "slide-in-top");
     }, 1200);
-
-    //play entrance css animation
-    questionBlock.classList.add("slide-in-top");
   });
 })();

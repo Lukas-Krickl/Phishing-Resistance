@@ -1,5 +1,26 @@
 "use strict";
 const controllerModule = (function () {
+  const expandedImgContainer = document.getElementById('expandedImgContainer');
+
+  //controll the entry screen
+  function showEntryScreen(show) {
+    let entryScreen = document.getElementById('entryScreen');
+    if (show) {
+      //fade out
+      setTimeout(function () {
+        entryScreen.classList.add("invisible");
+      }, 2500);
+      //hide completely
+      setTimeout(function () {
+        entryScreen.remove();
+      }, 3000);
+    } else {
+      entryScreen.classList.add("invisible");
+      setTimeout(function () {
+        entryScreen.remove();
+      }, 2000);
+    }
+  }
 
   //controller for controlling hints section on page
   const hintController = {
@@ -55,7 +76,8 @@ const controllerModule = (function () {
       webBlock : document.getElementById('webBlock'),
       browserLock : document.getElementById('browserLock'),
       browserUrl : document.getElementById('browserUrl'),
-      browserContent : document.getElementById('browserContent')
+      browserContentImg: document.getElementById('browserContentImg'),
+      expandedImgIframe : document.getElementById('expandedImgIframe'),
     },
 
     mailSection : {
@@ -81,7 +103,8 @@ const controllerModule = (function () {
       this.webSection.browserUrl.innerHTML = webJson.url;
 
       //set browser content
-      this.webSection.browserContent.src = webJson.file;
+      this.webSection.browserContentImg.src = webJson.file;
+      this.webSection.expandedImgIframe.src = webJson.file;
     },
 
     displayMail: function (mailJson) {
@@ -178,7 +201,12 @@ const controllerModule = (function () {
     }
   };
 
+  //expand img event listener
+
   return {
+    expandedImgContainer:expandedImgContainer,
+    toggleMobileNav:toggleMobileNav,
+    showEntryScreen:showEntryScreen,
     hintController:hintController,
     questionController:questionController,
     gameController : gameController
