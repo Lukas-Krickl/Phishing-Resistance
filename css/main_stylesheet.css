@@ -77,8 +77,6 @@ button {
   line-height: inherit;
 }
 
-
-
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 400;
@@ -223,6 +221,10 @@ section * {
     margin: 0;
   }
 
+  .nav-badge img {
+    height: 40px;
+  }
+
   nav {
     position: fixed;
     z-index: 20;
@@ -292,7 +294,6 @@ li a {
   }
 }
 
-
 .page {
   position: fixed;
   z-index: 10;
@@ -314,7 +315,7 @@ li a {
   height: 100vh;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 20vh auto 10vh 4vh;
+  grid-template-rows: 16vh auto 4vh;
 }
 
 .page-1-logo {
@@ -325,10 +326,14 @@ li a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 5vh;
 }
 
-.page-1-main * {
-  margin-bottom: 3vh;
+.page-1-main h1,
+.page-1-main h4,
+.page-1-block {
+  flex-grow: 1;
+  margin: 0;
 }
 
 .page-1-block {
@@ -342,17 +347,29 @@ li a {
 }
 
 .page-1-links {
-  margin-top: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 10;
 }
 
 .page-1-links a {
-  margin: 1rem;
+  margin: 2vh;
   text-align: center;
 }
 
 @media only screen and (max-width: 650px)  {
+  .page {
+    grid-template-rows: 10vh 8vh 68vh 12vh 2vh;
+  }
+
+  .page-1-main {
+    grid-row: 2 / 4;
+    overflow-y: auto;
+  }
+
   .page-1-logo {
-    width: 90vw;
+    height: 50px;
   }
 
   .page-1-block p {
@@ -364,7 +381,7 @@ li a {
   }
 
   .page-1-links {
-    display: flex;
+    align-items: stretch;
     flex-direction: column;
   }
 }
@@ -403,6 +420,7 @@ li a {
 
 .page-title {
   text-align: center;
+  padding: 1rem 0;
 }
 
 .small {
@@ -471,4 +489,26 @@ li a {
 .howto-instruction span {
   font-size: 3rem;
   margin-right: 1rem;
+}
+
+@media only screen and (max-width: 650px)  {
+  .howto-hints {
+    display: none;
+  }
+
+  .howto-content {
+    padding: 1rem;
+  }
+
+  .howto-instruction {
+    margin-bottom: 2rem;
+  }
+
+  .howto-instruction p {
+    font-size: 1.2rem;
+  }
+
+  .howto-instruction span {
+    font-size: 2rem;
+  }
 }

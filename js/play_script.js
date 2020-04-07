@@ -240,6 +240,11 @@ var playModule = (function () {
     evaluateAnswer("authentic");
   });
 
+  //browser img load eventlistener for slide in animation
+  controller.questionController.webSection.browserContentImg.addEventListener('load', function () {
+    questionBlock.classList.replace("slide-out-top", "slide-in-top");
+  })
+
   //next btn eventlistener
   controller.gameController.nextBTN.addEventListener("click", function () {
     let questionBlock = controller.questionController.questionBlock;
@@ -254,7 +259,9 @@ var playModule = (function () {
     setTimeout(function () {
       //select and display new question after question slided out
       selectQuestion();
-      questionBlock.classList.replace("slide-out-top", "slide-in-top");
+      if(controller.questionController.webSection.browserContentImg.complete) {
+        questionBlock.classList.replace("slide-out-top", "slide-in-top");
+      } 
     }, 1200);
   });
 })();
