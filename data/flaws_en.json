@@ -6,7 +6,7 @@
   },
   {
     "name":"Domain permutation",
-    "description":"Website URLs could be faked easily by altering a letter or switching some words so that they look very similar to the original one. Be carefull with familiar looking links too.",
+    "description":"Website URLs could be faked easily by altering a letter or switching some words so that they look very similar to the original one. Be careful with familiar looking links too.",
     "link":"https://en.wikipedia.org/wiki/Typosquatting"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "name":"Question everything",
-    "description":"Random lottery winns or dangerous virus attacks. Attackers will put you under pressure so you do stupid things. Don't do stupid things and don't believe everything.",
+    "description":"Random lottery wins or dangerous virus attacks. Attackers will put you under pressure so you do stupid things. Don't do stupid things and don't believe everything.",
     "link":""
   }
 ]
