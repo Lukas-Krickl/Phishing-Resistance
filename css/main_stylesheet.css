@@ -49,6 +49,13 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+@media only screen and (max-width: 650px)  {
+  html, body {
+    height: 100%;
+    width: 100%;
+  }
+}
+
 body {
   height: 100%;
   font-family: 'Rasa', serif;
@@ -230,8 +237,8 @@ section * {
     z-index: 20;
     right: 0;
     top: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -299,8 +306,8 @@ li a {
   z-index: 10;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 12vh 5vh 67vh 12vh 4vh;
@@ -311,11 +318,11 @@ li a {
   z-index: 10;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 16vh auto 4vh;
+  grid-template-rows: 16vh 80vh 4vh;
 }
 
 .page-1-logo {
@@ -360,7 +367,7 @@ li a {
 
 @media only screen and (max-width: 650px)  {
   .page {
-    grid-template-rows: 10vh 8vh 68vh 12vh 2vh;
+    grid-template-rows: 10% 8% 68% 12% 2%;
   }
 
   .page-1-main {
