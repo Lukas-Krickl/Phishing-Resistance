@@ -28,11 +28,16 @@ var playModule = (function () {
     }
   }
 
-  //cookie is a array with amount [correct phish, correct auth, missed phish, missed auth]
-  var userStats;
-  if (document.cookie) {
-    userStats = JSON.parse(document.cookie);
-    console.log("exisiting user: "+document.cookie);
+  //userStats is a array with amount [correct phish, correct auth, missed phish, missed auth]
+  var userStats = getUserStats(); //is a string
+  if (userStats) {
+    try {
+      console.log("exisiting user: "+userStats);
+      userStats = JSON.parse(userStats);
+    } catch (e) {
+      console.log("error on parsing userstats: "+JSON.stringify(e));
+      userStats = [0,0,0,0];
+    }
   } else {
     userStats = [0,0,0,0];
     console.log("new user initialized");
@@ -67,7 +72,7 @@ var playModule = (function () {
   function init() {
     calcQuestionDistribution();
     //show entry screen only if new user visits page
-    controller.showEntryScreen(!document.cookie);
+    controller.showEntryScreen(userStats===[0,0,0,0]);
     selectQuestion();
     controller.questionController.questionBlock.classList.replace("hidden", "slide-in-top");
     console.log("initialized");
@@ -149,9 +154,9 @@ var playModule = (function () {
           controller.gameController.toggleFeedback(true, false, false);
         }
       }
-      document.cookie = JSON.stringify(userStats);
+      setUserStats(userStats);
       //show result feedback and hints
-      console.log("stats after answer: "+document.cookie);
+      console.log("stats after answer: "+JSON.stringify(userStats));
     }
   }
 
@@ -261,7 +266,7 @@ var playModule = (function () {
       selectQuestion();
       if(controller.questionController.webSection.browserContentImg.complete) {
         questionBlock.classList.replace("slide-out-top", "slide-in-top");
-      } 
+      }
     }, 1200);
   });
 })();

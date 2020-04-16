@@ -1,9 +1,15 @@
 "use strict";
 var resultModule = (function () {
-  var userStats;
-  if (document.cookie) {
-    userStats = JSON.parse(document.cookie);
-    console.log("exisiting user: "+document.cookie);
+  //retrieve user stats information
+  var userStats = getUserStats(); //is a string
+  if (userStats) {
+    try {
+      console.log("exisiting user: "+userStats);
+      userStats = JSON.parse(userStats);
+    } catch (e) {
+      console.log("error on parsing userstats: "+JSON.stringify(e));
+      userStats = [0,0,0,0];
+    }
   } else {
     userStats = [0,0,0,0];
     console.log("new user initialized");

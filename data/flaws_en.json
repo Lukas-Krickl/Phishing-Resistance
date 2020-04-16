@@ -6,7 +6,7 @@
   },
   {
     "name":"URL Uniform Ressource Locator",
-    "description":"The URL of a website tells you where it comes from. It's a first indication of phishing if the domain name does not match the displayed page. The domain name are the words inside the URL between the 'http://' and the ending like '.com', '.de' or '.org'",
+    "description":"The URL of a website tells you where it comes from. It's a first indication of phishing if the domain name does not match the displayed page. The domain name consists of the words inside the URL between the 'http://' and the ending like '.com', '.de' or '.org'",
     "link":""
   },
   {
