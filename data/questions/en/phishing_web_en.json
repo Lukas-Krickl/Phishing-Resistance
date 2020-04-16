@@ -1,8 +1,74 @@
 [
   {
-    "url":"https://sso.raifeisen.at/login/#/identifier/verfueger",
+    "url":"http://sso.raifeisen.at/login/#/identifier/verfueger",
+    "ssl": false,
+    "file": "../../data/questions/en/phishing_screenshots/raika-ssp1.jpg",
+    "flaws" : [1,2,3,4]
+  },
+  {
+    "url":"https://fragatta.cl/document/file/login.php",
     "ssl": true,
-    "file": "../../data/questions/en/phishing_screenshots/raika-ss1p.jpg",
-    "flaws" : [1,2]
+    "file": "../../data/questions/en/phishing_screenshots/microsoft-ssp1.jpg",
+    "flaws" : [1,2,3]
+  },
+  {
+    "url":"https://semvice11.000webhostapp.com/ccl.html",
+    "ssl": true,
+    "file": "../../data/questions/en/phishing_screenshots/facebook-ssp1.jpg",
+    "flaws" : [1,2,3]
+  },
+  {
+    "url":"http://tranase5620037-com.preview-domain.com",
+    "ssl": false,
+    "file": "../../data/questions/en/phishing_screenshots/facebook-ssp2.jpg",
+    "flaws" : [1,2,3,4]
+  },
+  {
+    "url":"http://tboc.payrolldeposit.org",
+    "ssl": false,
+    "file": "../../data/questions/en/phishing_screenshots/paylocity-ssp1.jpg",
+    "flaws" : [1,2,3,4]
+  },
+  {
+    "url":"https://www.paypal.com",
+    "ssl": true,
+    "file": "../../data/questions/en/phishing_screenshots/paypal-ssp1.jpg",
+    "flaws" : [1,12]
+  },
+  {
+    "url":"https://N95mask-covid19.com",
+    "ssl": true,
+    "file": "../../data/questions/en/phishing_screenshots/n95-mask-ssp1.jpg",
+    "flaws" : [5]
+  },
+  {
+    "url":"http://www.thebloodcenter.org",
+    "ssl": false,
+    "file": "../../data/questions/en/phishing_screenshots/plasma-ssp1.jpg",
+    "flaws" : [4,13]
+  },
+  {
+    "url":"http://www.thebloodcenter.org",
+    "ssl": false,
+    "file": "../../data/questions/en/phishing_screenshots/plasma-ssp1.jpg",
+    "flaws" : [4,13]
+  },
+  {
+    "url":"http://tv-licence1.com/login.php",
+    "ssl": false,
+    "file": "../../data/questions/en/phishing_screenshots/giffgaff-ssp1.jpg",
+    "flaws" : [4]
+  },
+  {
+    "url":"https://manage.emailsisenseinc.com/",
+    "ssl": true,
+    "file": "../../data/questions/en/phishing_screenshots/sisense-ssp1.jpg",
+    "flaws" : [11]
+  },
+  {
+    "url":"https://securityagainstwannacry.com",
+    "ssl": true,
+    "file": "../../data/questions/en/phishing_screenshots/chrome-wannacry-ssp1.jpg",
+    "flaws" : [7]
   }
 ]

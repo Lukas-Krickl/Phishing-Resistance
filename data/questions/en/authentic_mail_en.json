@@ -3,5 +3,40 @@
     "from":"jobs-listings@linkedin.com",
     "subject":"Marketing Company is looking for: IT Specialist",
     "content":"Top job picks for you<br>Summer Students 2020 (m/f)<br>Vienna, AT<br><a>to job offer</a><br><br>PHP Developer (m/f/d) with Laravel Skills<br>Munich, DE<br><a>to job offer</a><br><br>Cisco Associate Solutions Engineer - Bachelor/Master (Graduate)<br>Vienna, AT <br><a>to job offer</a>"
+  },
+  {
+    "from":"auto-confirm@amazon.de",
+    "subject":"Updated Language Settings",
+    "content":"Hello, <br><br>You have successfully changed your default language for browsing, shopping and receiving communications from Amazon.de to 'English'.<br>If you wish to change your default language, you may visit Change Language Settings at Amazon.de.<br><br>Thank you for visiting us.<br><br>Amazon.de "
+  },
+  {
+    "from":"noreply@wyfegypt.com",
+    "subject":"A message to the World Youth Forum Community",
+    "content":"A message to the World Youth Forum Community<br><br>As the widespread of Coronavirus (COVID-19) continues to create global challenges impacting all our lives, we hope that you are taking all measures to stay safe."
+  },
+  {
+    "from":"news@chess.com",
+    "subject":"Stay home. Play chess. Enjoy Puzzle Battle for free!",
+    "content":"Hello, <br><br> There is a massive global effort underway to fight covid-19, and we salute the health-care workers, researchers, and others working hard to face this unprecedented event. Our heart also goes out to all of those affected by this historic tragedy. <br><br>For most of us, the most helpful thing we can do is stay inside and help contain the virus. Millions of people are already spending more time indoors, and Chess.com (and ChessKid) have seen a huge number of people turning to chess to pass the time. So here are some ideas - and one feature made totally free! - to help you enjoy chess with friends and family at this time."
+  },
+  {
+    "from":"noreply@game-free.za",
+    "subject":"Game Now",
+    "content":"Hi ,<br><br>We are excited to announce game-free.za , our new free gaming platform.<br>game-free.za is like Playstation Network. It offers tripple A titles, classics and you can access them for half the price!<br><br><a>Sign up now</a>"
+  },
+  {
+    "from":"noreply-utos@google.com",
+    "subject":"Learn more about our updated Terms of Service",
+    "content":"We’re improving our Terms of Service and making them easier for you to understand. The changes will take effect on March 31, 2020, and they won’t impact the way you use Google services.<br><br>For more details, we’ve provided a <a>summary of the key changes</a> and Frequently Asked Questions. At a glance, here’s what this update means for you:<br><br>.<br>.<br>."
+  },
+  {
+    "from":"security@facebookmail.com",
+    "subject":"Sign into Facebook by just one click!",
+    "content":"<h5>Facebook</h5><br>Hallo,<br><br>do you have issues with the signin of your facebook account? In case you need help you can click the button below and we sign you in. <br><br><a> Sign in with one click</a><br><br>A sign in attempt failed. <a>Tell us if it wasn't you.</a>"
+  },
+  {
+    "from":"account-security-noreply@account.microsoft.com",
+    "subject":"Security information of your Microsoft-Account",
+    "content":"<h6>Microsoft-Account</h6><br><br>A process of replacing your security information was started. If you requested this by youself, click the link below<br><br><a>I requested this</a>"
   }
 ]

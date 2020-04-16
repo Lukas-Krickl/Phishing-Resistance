@@ -3,6 +3,66 @@
     "from":"checker2000@gmail.com",
     "subject":"Congratulation you won the contest!",
     "content":"Congratulations you have won the contest of Wikipedia!<br><br>We since the beginning of Wikipedia we counted every user reading our articles and you were the 1 000 000 person visiting our website.<br><br>So we are giving away 500$ to a number of visitors.<br>To receive your prize click on the link below so we can contact you.<br><br><a>https://bit.ly/d7jdHF9I84jsa/</a><br><br>thanks your Wikipedia team. ",
-    "flaws":[4]
+    "flaws":[5,6]
+  },
+  {
+    "from":"noraply@whatsapp-deutschland.de",
+    "subject":"Aktualisieren Sie Ihren pushTAN 6.0.2",
+    "content":"Sehr geehrter Kunde:<br><br>Wir bedauern, Ihnen mitteilen zu müssen, dass Ihr Konto in der Online-raiffeisen pushTAN vorübergehend gesperrt wurde.<br>Führen Sie zu Ihrer Sicherheit die folgende Kontobestätigung sofort durch.<br><a>Klicken Sie hier</a> und bestätigen Sie Ihre Identität<br>Aus Sicherheitsgründen bitten wir Sie, die Sitzung sofort zu beenden.<br>Um zu verhindern, dass Ihr Zugriff von Personen außerhalb von Ihnen bearbeitet wird<br>Mit freundlichen Grüßen,<br>Raiffeisen.at Kundenservice",
+    "flaws":[5,8,11]
+  },
+  {
+    "from":"newsletters@wanderlust.co.uk",
+    "subject":"Thanks for signing up!",
+    "content":"Thanks for signing up!<br><br>Hi Ackie wants to meet you! Click here: <a>http://n7xm8.tk/0jeb7v</a><br>This is just a quick email to say thank you for signing up to our newsletter via the Wanderlust website. <br><br>We've signed you up to our main newsletter, out every Wednesday, with details of all the great content and competitions on the Wanderlust website.<br>We do have other emails you can sign up to as well which you can find below.",
+    "flaws":[0,8,11]
+  },
+  {
+    "from":"newsletters@wanderlust.co.uk",
+    "subject":"We're really sorry!",
+    "content":"Over the weekend, our website suffered an attack from a Russian spambot. <br>It took email addresses that it had found on the internet or from hacked databases and used our newsletter sign up form to sign you up to our newsletter.<br><br>It also used the firstname field to inject a phrase such as 'Hannah wants to meet you' with a link to a dubious website.",
+    "flaws":[9]
+  },
+  {
+    "from":"van.capone@gmx.de",
+    "subject":"Hello Friend",
+    "content":"Hello Friend<br><br>I contacted you concerning the fund $ 10.5 Million dollars deposited in a bank here by my late deceased who bear the same last name with you.<br>Furthermore in this transaction I want you confidentially reply to me directly to my private email address (lorentejan@aol.com) for more details.<br><br>Regards<br><br>Loren Tejan",
+    "flaws":[5]
+  },
+  {
+    "from":"sloto@ruhrb.com",
+    "subject":"Bring Vegas to you with this 300% sign up bonus",
+    "content":"Enjoy our limited-time offer!<br><br>We've cut a serious deal to bring you a generous 300% Bonus with no playthrough or maximum cash-out requirements. Just use the code NEW300 to give your bankroll a boost.<br>That's right, the more you deposit - the more you get.<br><br>If you deposit 50 bucks, you can play with 200 after the bonus!<br><br>But you better hurry! Your offer will expire in 3 days.<br><a>Click here!</a>",
+    "flaws":[5,8,9]
+  },
+  {
+    "from":"no-reply@lbbspecials.com",
+    "subject":"Are You Unemployed?",
+    "content":"Are you Unemployed or Maybe you Are stuck at home due Quarantine.<br>Have you seriously considered working from the comfort of your own home? With what I’m giving you today, you can quit immediately.<br>This is what your new life looks like<br>Wake up, tap your phone a few times, watch the money roll in.<br>Sounds good, huh? That’s what I do every day.<br>And what you can too, with My Secret System.<br> Click below to get your time-Limited access",
+    "flaws":[5,8,9]
+  },
+  {
+    "from":"info@cyma.eu",
+    "subject":"Αντίγραφο του:",
+    "content":"Ακολουθεί αντίγραφο του μηνύματος που στείλατε στον/στην Webmaster μέσω ΠΙΣ<br><br>Αυτό είναι ένα διερευνητικό μήνυμα μέσω",
+    "flaws":[9]
+  },
+  {
+    "from":"delivery@slimming-courses.com",
+    "subject":"Revolutionary methods for a diet!",
+    "content":"Dear customer,<br><br>We like to provide you with our new program of reducing some overweight.<br>With this easy training you look like in your dreams in no time!<br><br>You can find the new e-book version of  our training program in the PDF of this mail.<br><br> Stay healty!",
+    "flaws":[10]
+  },
+  {
+    "from":"from@telekom.com",
+    "subject":"Missing your nightly performance of your 20s?",
+    "content":"We got you provided with our new product line of Standing Man.<br><br> Folder provided as attachment.",
+    "flaws":[0, 10]
+  },
+  {
+    "from":"service-for-folks@linkedin.com",
+    "subject":"COVID-19  affects not only humans but also businesses",
+    "content":"This difficult situation should not affect your business.<br><br> As a lot of countries are quaratined, people are also affected by a financial crisis. A lot of workers depend on a monthly paycheck and don't have enough financial backup to just stay at home, but What if you could stay at home and earn money like in your normal job. This service provides a system everyone can use from home and gain financial stability.<br><br><a>A service for folks</a>",
+    "flaws":[0,5]
   }
 ]

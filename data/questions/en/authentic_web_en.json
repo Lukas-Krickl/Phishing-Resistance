@@ -2,31 +2,71 @@
   {
     "url":"https://george.sparkasse.at",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/erstebank-ss1a.jpg"
-  },
-  {
-    "url":"https://login.sparkasse.at/sts/oauth/authorize?response_type=token&client_id=georgeclient",
-    "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/erstebank-ss1a.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/erstebank-ssa1.jpg"
   },
   {
     "url":"https://www.amazon.com",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/amazon-ss2a.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/amazon-ssa1.jpg"
   },
   {
     "url":"https://www.facebook.com",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/facebook-ss3a.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/facebook-ssa1.jpg"
   },
   {
     "url":"https://www.paypal.com/signin",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/paypal-ss4a.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/paypal-ssa1.jpg"
   },
   {
     "url":"https://sso.raiffeisen.at/login/#/identifier/verfueger",
     "ssl": true,
-    "file": "../../data/questions/en/authentic_screenshots/raika-ss5a.jpg"
+    "file": "../../data/questions/en/authentic_screenshots/raika-ssa1.jpg"
+  },
+  {
+    "url":"https://accounts.google.com/signin/",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/google-ssa1.jpg"
+  },
+  {
+    "url":"https://att.com/my/#/login",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/att-ssa1.jpg"
+  },
+  {
+    "url":"https://banking.volksbank.at/banking/login.xhtml",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/volksbank-ssa1.jpg"
+  },
+  {
+    "url":"https://shop.wienerlinien.at/index.php/login",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/wienerlinien-ssa1.jpg"
+  },
+  {
+    "url":"https://accounts.spotify.com/en/login",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/spotify-ssa1.jpg"
+  },
+  {
+    "url":"https://www.dropbox.com/en/?_hp=c",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/dropbox-ssa1.jpg"
+  },
+  {
+    "url":"https://www.linkedin.com/login",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/linkedin-ssa1.jpg"
+  },
+  {
+    "url":"http://free-cash.com",
+    "ssl": false,
+    "file": "../../data/questions/en/authentic_screenshots/firefox-safety-ssa1.jpg"
+  },
+  {
+    "url":"https://piratebays.red",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/piratebay-ssa1.jpg"
   }
 ]

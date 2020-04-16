@@ -5,6 +5,11 @@
     "link":"https://en.wikipedia.org/wiki/Email_spoofing"
   },
   {
+    "name":"URL Uniform Ressource Locator",
+    "description":"The URL of a website tells you where it comes from. It's a first indication of phishing if the domain name does not match the displayed page. The domain name are the words inside the URL between the 'http://' and the ending like '.com', '.de' or '.org'",
+    "link":""
+  },
+  {
     "name":"Domain permutation",
     "description":"Website URLs could be faked easily by altering a letter or switching some words so that they look very similar to the original one. Be careful with familiar looking links too.",
     "link":"https://en.wikipedia.org/wiki/Typosquatting"
@@ -22,6 +27,46 @@
   {
     "name":"Question everything",
     "description":"Random lottery wins or dangerous virus attacks. Attackers will put you under pressure so you do stupid things. Don't do stupid things and don't believe everything.",
+    "link":""
+  },
+  {
+    "name":"Compressed Links",
+    "description":"There are third party services to reduce the length of a hyperlink but they make them unreadable so you don't know where they are leading to. Trusworthy sources would never have reasons to hide their location, as it would make them untrustworthy.",
+    "link":"https://en.wikipedia.org/wiki/URL_shortening"
+  },
+  {
+    "name":"A virus on your computer",
+    "description":"Websites have very little insight about your computer if your system is healthy and up to date. If they say your system is infected by a virus and their software will cure it,  stay calm. A website can't scan your whole system but your local anti virus software does.",
+    "link":""
+  },
+  {
+    "name":"Drive by download",
+    "description":"Upon visiting a website, clicking a link or accessing e-mail attachements, malware could be downloaded in the background without you noticing. Instead of clicking a link you just gave the permission for the download instead.",
+    "link":"https://en.wikipedia.org/wiki/Drive-by_download"
+  },
+  {
+    "name":"Spam",
+    "description":"E-mails you don't have requested. Most of them are harmless but still unwanted.",
+    "link":"https://en.wikipedia.org/wiki/Email_spam"
+  },
+  {
+    "name":"Dangerous Documents",
+    "description":"So called file less attacks are common documents like PDFs or Microsoft Office documents with malicious program code injected.",
+    "link":"https://www.mcafee.com/enterprise/en-us/security-awareness/ransomware/what-is-fileless-malware.html"
+  },
+  {
+    "name":"Urgent Notifications and Confirmation",
+    "description":"Account validation and customer service. These are reasons why valid companies send out authentic e-mails. You should always ask yourself: 'Did I request the e-mail?' When in doubt go to the official page by a searchengine and check yourself.",
+    "link":""
+  },
+  {
+    "name":"Advanced Attacks: Fake DNS resolution.",
+    "description":"URLs are unique and translate to a IP address with the so called DNS. DNS messages are unencrypted and not verified so in theory a attacker could place his own DNS server between the original one and your computer and serve you any page with any URL he likes. This is not very likely and just a technical possibility, but if you are in a critical working position the effort of this attack may pay off to the attacker.",
+    "link":"https://www.welivesecurity.com/2017/02/27/dns-attacks-try-direct-fake-pages/"
+  },
+  {
+    "name":"Unprofessional appearance",
+    "description":"While a website or a e-mail doesn't have to be malicious if it looks very self made, but it is a general indication of a phishing attack. So if something looks quite phishy, better don't use it. If the authentic company was on a budget when creating their design, they were on a budget when implementing security as well, if they even have any.",
     "link":""
   }
 ]
