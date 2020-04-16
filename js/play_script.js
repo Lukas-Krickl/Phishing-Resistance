@@ -138,7 +138,6 @@ var playModule = (function () {
 
       if (currentQuestion.phishing) {
         if(answer === "phishing") {
-          console.log("answered phishing on phishing");
           userStats[0]++;
           controller.gameController.toggleFeedback(true, true, true);
         } else {
