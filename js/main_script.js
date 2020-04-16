@@ -20,7 +20,7 @@ function setUserStats(userStats) {
   var d = new Date();
   d.setTime(d.getTime() + (80*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
-  document.cookie = "userStats=" + JSON.stringify(userStats) + ";" + expires + ";path=/";
+  document.cookie = "userStats=" + JSON.stringify(userStats) + ";" + expires + ";SameSite=Lax;path=/";
 }
 
 
