@@ -72,10 +72,11 @@ var playModule = (function () {
   function init() {
     calcQuestionDistribution();
     //show entry screen only if new user visits page
-    controller.showEntryScreen(userStats===[0,0,0,0]);
+
+    controller.showEntryScreen(!getUserStats());
     selectQuestion();
     controller.questionController.questionBlock.classList.replace("hidden", "slide-in-top");
-    console.log("initialized");
+    console.log("initialized: "+ JSON.stringify(userStats));
   }
 
   //randomly selects any question
