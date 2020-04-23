@@ -38,5 +38,10 @@
     "from":"account-security-noreply@account.microsoft.com",
     "subject":"Security information of your Microsoft-Account",
     "content":"<h6>Microsoft-Account</h6><br><br>A process of replacing your security information was started. If you requested this by youself, click the link below<br><br><a>I requested this</a>"
+  },
+  {
+    "from":"newsletters@wanderlust.co.uk",
+    "subject":"We're really sorry!",
+    "content":"Over the weekend, our website suffered an attack from a Russian spambot. <br>It took email addresses that it had found on the internet or from hacked databases and used our newsletter sign up form to sign you up to our newsletter.<br><br>It also used the firstname field to inject a phrase such as 'Hannah wants to meet you' with a link to a dubious website."
   }
 ]

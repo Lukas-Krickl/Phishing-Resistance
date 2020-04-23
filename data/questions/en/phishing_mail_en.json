@@ -15,13 +15,7 @@
     "from":"newsletters@wanderlust.co.uk",
     "subject":"Thanks for signing up!",
     "content":"Thanks for signing up!<br><br>Hi Ackie wants to meet you! Click here: <a>http://n7xm8.tk/0jeb7v</a><br>This is just a quick email to say thank you for signing up to our newsletter via the Wanderlust website. <br><br>We've signed you up to our main newsletter, out every Wednesday, with details of all the great content and competitions on the Wanderlust website.<br>We do have other emails you can sign up to as well which you can find below.",
-    "flaws":[0,8,11]
-  },
-  {
-    "from":"newsletters@wanderlust.co.uk",
-    "subject":"We're really sorry!",
-    "content":"Over the weekend, our website suffered an attack from a Russian spambot. <br>It took email addresses that it had found on the internet or from hacked databases and used our newsletter sign up form to sign you up to our newsletter.<br><br>It also used the firstname field to inject a phrase such as 'Hannah wants to meet you' with a link to a dubious website.",
-    "flaws":[9]
+    "flaws":[0,8,9,11]
   },
   {
     "from":"van.capone@gmx.de",
@@ -48,7 +42,7 @@
     "flaws":[9]
   },
   {
-    "from":"delivery@slimming-courses.com",
+    "from":"delivery@slimming-courses.sx",
     "subject":"Revolutionary methods for a diet!",
     "content":"Dear customer,<br><br>We like to provide you with our new program of reducing some overweight.<br>With this easy training you look like in your dreams in no time!<br><br>You can find the new e-book version of  our training program in the PDF of this mail.<br><br> Stay healty!",
     "flaws":[10]
@@ -60,7 +54,7 @@
     "flaws":[0, 10]
   },
   {
-    "from":"service-for-folks@linkedin.com",
+    "from":"service-for-folks@linkin.com",
     "subject":"COVID-19  affects not only humans but also businesses",
     "content":"This difficult situation should not affect your business.<br><br> As a lot of countries are quaratined, people are also affected by a financial crisis. A lot of workers depend on a monthly paycheck and don't have enough financial backup to just stay at home, but What if you could stay at home and earn money like in your normal job. This service provides a system everyone can use from home and gain financial stability.<br><br><a>A service for folks</a>",
     "flaws":[0,5]

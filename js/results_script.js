@@ -1,7 +1,8 @@
 "use strict";
 var resultModule = (function () {
   //retrieve user stats information
-  var userStats = getUserStats(); //is a string
+  const localStore = window.localStorage;
+  var userStats = localStore.getItem("userStats"); //is a string
   if (userStats) {
     try {
       console.log("exisiting user: "+userStats);

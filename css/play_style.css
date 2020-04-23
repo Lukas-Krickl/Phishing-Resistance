@@ -20,6 +20,19 @@
   margin-bottom: 4rem;
 }
 
+.finish-screen div {
+  margin-bottom: 4rem;
+
+}
+
+.finish-screen img {
+  margin-bottom: 2rem;
+}
+
+.finish-screen-btns * {
+  margin: 2rem 1rem;
+}
+
 .hints {
   max-width: 25rem;
   background-color: var(--light-bg);

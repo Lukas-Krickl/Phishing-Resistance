@@ -1,6 +1,7 @@
 "use strict";
 const controllerModule = (function () {
   const expandedImgContainer = document.getElementById('expandedImgContainer');
+  const finishScreen = document.getElementById('finishScreen');
 
   //controll the entry screen
   function showEntryScreen(show) {
@@ -205,6 +206,7 @@ const controllerModule = (function () {
 
   return {
     expandedImgContainer:expandedImgContainer,
+    finishScreen:finishScreen,
     toggleMobileNav:toggleMobileNav,
     showEntryScreen:showEntryScreen,
     hintController:hintController,

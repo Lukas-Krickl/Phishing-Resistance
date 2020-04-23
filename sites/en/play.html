@@ -3,20 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="On Phishing Resistance you can practise identifying phishing e-mails and websites.">
+    <meta name="description" content="On Phishing Resistance you can practise identifying phishing attacks.">
+    <meta name="keywords" content="Phishing Resistance, Phishing, Tests, Game, Attacks, Security">
     <meta name="author" content="Lukas Krickl">
+    <meta property="og:title" content="Phishing Resistance">
+    <meta property="og:description" content="On Phishing Resistance you can practise identifying phishing attacks.">
+    <meta property="og:image" content="../../assets/pr-icons/phishing-resistance-logo-lg.svg">
     <title>Phishing Resistance</title>
     <link rel="icon" href="../../assets/pr-icons/phishing-resistance-symbol-white.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" type="text/css" href="../../css/main_stylesheet.css">
     <link rel="stylesheet" type="text/css" href="../../css/play_style.css">
-    <script type="text/javascript">
-      const language = "EN";
-    </script>
   </head>
   <body>
     <div class="entry-screen" id="entryScreen">
       <img src="../../assets/pr-icons/phishing-resistance-logo-lg-squared.svg" height="150px" alt="Phishing Resistance">
       <h1>Are you resistant against phishing attacks?</h1>
+    </div>
+
+    <div class="entry-screen finish-screen hidden" id="finishScreen">
+      <img src="../../assets/illustrations/fisher8.jpg" height="200px" alt=" ">
+      <div>
+        <h1>Congratulations!</h1>
+        <h3>You solved all our tests. You can view your statistics or try again.</h3>
+      </div>
+      <div class="finish-screen-btns">
+        <button class="btn btn-blue"type="button" name="button" id="tryAgainBtn">Try again!</button>
+        <a class="btn btn-outline-blue" href="results.html">Go to results</a>
+      </div>
+
     </div>
 
     <div class="img-expand hidden" id="expandedImgContainer">
@@ -35,7 +49,7 @@
           <a href="about.html">About</a>
           <a class="hidden" href="../de/play.html"><img src="../../assets/icons/AT.svg" height="30px" alt="Deutsch"></a>
           <a class="hidden" href="../en/play.html"><img src="../../assets/icons/EN.svg" height="30px" alt="English"></a>
-          <span class="version">v. 0.2.1 alpha</span>
+          <span class="version" id="version"></span>
           <button class="nav-mobile-menu" type="button" name="close-hamburger-menu" onclick="toggleMobileNav(false);"><img  src="../../assets/icons/close.svg" height="40px" alt="close"></button>
         </nav>
       </header>
@@ -81,9 +95,13 @@
       <img src="../../assets/illustrations/fisher4.jpg" height="280px" alt=" ">
       <img src="../../assets/illustrations/fisher13.jpg" height="250px" alt=" ">
     </div>
-    <script type="text/javascript" src="../../js/main_script.js"></script>
-    <script type="text/javascript" src="../../js/config.js"></script>
-    <script type="text/javascript" src="../../js/controller.js"></script>
-    <script type="text/javascript" src="../../js/play_script.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script defer type="text/javascript" src="../../js/firestore_controller.js"></script>
+    <script defer type="text/javascript" src="../../js/main_script.js"></script>
+    <script defer type="text/javascript" src="../../js/config.js"></script>
+    <script defer type="text/javascript" src="../../js/controller.js"></script>
+    <script defer type="text/javascript" src="../../js/play_script.js"></script>
+
   </body>
 </html>

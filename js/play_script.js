@@ -1,6 +1,10 @@
 "use strict";
 var playModule = (function () {
   const controller = controllerModule;
+  const firestore = firestore_controller_module;
+  const sessionStore = window.sessionStorage;
+  const localStore = window.localStorage;
+
   var data = {  //attributes used for automatic file loading, if changed, -> change loadData function
     flaws:"",
     authentic_mail:"",
@@ -9,27 +13,32 @@ var playModule = (function () {
     phishing_web:""
   };
 
-  // rates are calculated relative to subgroup eg phishingRate + authenticRate =1
-  var questionDistribution = {
-    total: 0,
-    web: {
-      webRate: 0.5,
-      phishing: 0,
-      phishingRate: 0.5,
-      authentic:0,
-      authenticRate:0.5
+  const filePaths = (language === "DE") ? config.files_de : config.files_en;
+  const fileNames = Object.getOwnPropertyNames(data);
+  const fileCount = fileNames.length;
+
+  var currentQuestion = {
+    questionWrapper: {
+      web:false,
+      phishing:false,
+      questionIndex: 0
     },
-    mail : {
-      mailRate: 0.5,
-      phishing: 0,
-      phishingRate: 0.5,
-      authentic:0,
-      authenticRate:0.5
-    }
+    answered:false,
+    questionListIndex:-1
+  };
+
+  //read questionlist from session storage if user resumes session
+  const resumeQuestions = sessionStore.getItem("questionListIndex") ? true : false;
+  var questionList = [];
+  if (resumeQuestions) {
+    currentQuestion.questionListIndex = sessionStore.getItem("questionListIndex");
+    questionList = JSON.parse(sessionStore.getItem("questionList"));
+    console.log("session restored:");
   }
 
   //userStats is a array with amount [correct phish, correct auth, missed phish, missed auth]
-  var userStats = getUserStats(); //is a string
+  //read locally stored user stats
+  var userStats = localStore.getItem("userStats");
   if (userStats) {
     try {
       console.log("exisiting user: "+userStats);
@@ -43,80 +52,83 @@ var playModule = (function () {
     console.log("new user initialized");
   }
 
-  const filePaths = (language === "DE") ? config.files_de : config.files_en;
-  const fileNames = Object.getOwnPropertyNames(data);
-  const fileCount = fileNames.length;
-
-  var currentQuestion = {
-    web:false,
-    phishing:false,
-    answered:false
-  };
-
-  function calcQuestionDistribution() {
-    questionDistribution.web.phishingRate = (questionDistribution.web.phishing / (questionDistribution.web.phishing + questionDistribution.web.authentic)).toFixed(2);
-    questionDistribution.web.authenticRate = (1 - questionDistribution.web.phishingRate).toFixed(2);
-    questionDistribution.mail.phishingRate = (questionDistribution.mail.phishing / (questionDistribution.mail.phishing + questionDistribution.mail.authentic)).toFixed(2);
-    questionDistribution.mail.authenticRate = (1 - questionDistribution.mail.phishingRate).toFixed(2);
-    questionDistribution.web.webRate = ((questionDistribution.web.phishing + questionDistribution.web.authentic) / questionDistribution.total).toFixed(2);
-    questionDistribution.mail.mailRate = (1-questionDistribution.web.webRate).toFixed(2);
-    console.log("question distribution: "+JSON.stringify(questionDistribution));
+  //firestore init
+  var fireId = localStore.getItem("fireId");
+  if (!fireId) {
+    firestore.newEntry(function (newId) {
+      fireId = newId;
+      localStore.setItem("fireId", fireId);
+      console.log("fireID set"+fireId);
+    });
   }
 
   function errorScreen(reason) {
     // TODO: for testing until error screen exists
-    console.log("ERROR SCREEN PRINTS: "+ reason);
+    console.error("ERROR SCREEN PRINTS: "+ reason);
   }
 
   //prepares first question
   function init() {
-    calcQuestionDistribution();
-    //show entry screen only if new user visits page
+    if (!resumeQuestions) {
+      shuffleQuestions(questionList)
+    }
+    selectNewQuestion();
 
-    controller.showEntryScreen(!getUserStats());
-    selectQuestion();
+    //show entry screen only if new user visits page
+    controller.showEntryScreen(!resumeQuestions);
+    displayQuestion();
     controller.questionController.questionBlock.classList.replace("hidden", "slide-in-top");
     console.log("initialized: "+ JSON.stringify(userStats));
   }
 
-  //randomly selects any question
-  function selectQuestion() {
-    let question;
-    //randomly select web or mail based on distribution
-    currentQuestion.web = (Math.random() < questionDistribution.web.webRate);
+  function selectNewQuestion() {
+    currentQuestion.answered = false;
+    currentQuestion.questionListIndex++;
+    //if all questions are processed, show endscreen and reshuffle
+    if (currentQuestion.questionListIndex == questionList.length) {
+      console.log("all questions processed, reshuffling");
+      controller.finishScreen.classList.remove("hidden");
+      currentQuestion.questionListIndex = 0;
+      shuffleQuestions();
+    }
 
-    if (currentQuestion.web) {
-      //randomly select phish or auth based on distribution
-      currentQuestion.phishing = (Math.random() < questionDistribution.web.phishingRate);
-      if (currentQuestion.phishing) {
-        //web phishing
-        question = data.phishing_web[getRandomIndex(data.phishing_web.length)];
+    currentQuestion.questionWrapper.web = questionList[currentQuestion.questionListIndex].web;
+    currentQuestion.questionWrapper.phishing = questionList[currentQuestion.questionListIndex].phishing;
+    currentQuestion.questionWrapper.questionIndex = questionList[currentQuestion.questionListIndex].questionIndex;
+    console.log("current question Nr: "+JSON.stringify(currentQuestion.questionListIndex));
+  }
+
+  //randomly selects any question
+  function displayQuestion() {
+    //question object from json file
+    let question;
+
+    //distinguish the type of question and display it correspondingly using the controller
+    if (currentQuestion.questionWrapper.web) {
+      //it's a web question
+      if (currentQuestion.questionWrapper.phishing) {
+        //it's a web phishing question
+        question = data["phishing_web"][currentQuestion.questionWrapper.questionIndex];
         controller.questionController.displayWeb(question);
         fillHints(question);
       } else {
-        //web authentic
-        question = data.authentic_web[getRandomIndex(data.authentic_web.length)];
+        //it's a web authentic question
+        question = data["authentic_web"][currentQuestion.questionWrapper.questionIndex];
         controller.questionController.displayWeb(question);
       }
     } else {
-      //its mail
-      //randomly select phish or auth based on distribution
-      currentQuestion.phishing = (Math.random() < questionDistribution.mail.phishingRate);
-      if (currentQuestion.phishing) {
-        //mail phishing
-        question = data.phishing_mail[getRandomIndex(data.phishing_mail.length)];
+      //it's a mail question
+      if (currentQuestion.questionWrapper.phishing) {
+        //it's a mail phishing question
+        question = data["phishing_mail"][currentQuestion.questionWrapper.questionIndex];
         controller.questionController.displayMail(question);
         fillHints(question);
       } else {
-        //mail authentic
-        question = data.authentic_mail[getRandomIndex(data.authentic_mail.length)];
+        //it's a mail authentic question
+        question = data["authentic_mail"][currentQuestion.questionWrapper.questionIndex];
         controller.questionController.displayMail(question);
       }
     }
-  }
-
-  function getRandomIndex(length) {
-    return Math.floor(Math.random() * length);
   }
 
   //selects all flaws mentioned in the question and fill hints box
@@ -128,7 +140,7 @@ var playModule = (function () {
       }
       controller.hintController.setHints(hints);
     } else {
-      errorScreen("Could not display hints code: pl87");
+      errorScreen("Could not display hints");
     }
   }
 
@@ -136,7 +148,7 @@ var playModule = (function () {
     if (!currentQuestion.answered) {
       currentQuestion.answered = true;
 
-      if (currentQuestion.phishing) {
+      if (currentQuestion.questionWrapper.phishing) {
         if(answer === "phishing") {
           userStats[0]++;
           controller.gameController.toggleFeedback(true, true, true);
@@ -144,6 +156,7 @@ var playModule = (function () {
           userStats[2]++;
           controller.gameController.toggleFeedback(true, false, true);
         }
+        //display phishing hints
         controller.hintController.display(true);
       } else {
         if (answer === "authentic") {
@@ -154,9 +167,11 @@ var playModule = (function () {
           controller.gameController.toggleFeedback(true, false, false);
         }
       }
-      setUserStats(userStats);
-      //show result feedback and hints
-      console.log("stats after answer: "+JSON.stringify(userStats));
+      //write to storage
+      localStore.setItem("userStats", JSON.stringify(userStats));
+      firestore.updateStats(fireId, userStats);
+      sessionStore.setItem("questionListIndex", currentQuestion.questionListIndex);
+      console.log("stats after answer: "+localStore.getItem("userStats"));
     }
   }
 
@@ -187,7 +202,9 @@ var playModule = (function () {
   function storeJson(convertedJson, fileName) {
     data[fileName] = convertedJson;
     //set question amount
-    setquestionDistribution(fileName);
+    if (!resumeQuestions) {
+      addToQuestionList(fileName);
+    }
 
     console.log(fileName + " successfully loaded");
     //travers all files in data, if all are loaded call init()
@@ -199,40 +216,87 @@ var playModule = (function () {
     init();
   }
 
-  function setquestionDistribution(fileName) {
+  //add all questions from the loaded data file into the question list
+  function addToQuestionList(fileName) {
     switch (fileName) {
       case "authentic_mail" :
-        questionDistribution.mail.authentic = data[fileName].length;
-        questionDistribution.total += questionDistribution.mail.authentic;
+        for (let i = 0; i < data[fileName].length; i++) {
+          let questionWrapper = {
+            web:false,
+            phishing:false,
+            questionIndex: i
+          }
+          questionList.push(questionWrapper);
+        }
         break;
 
       case "authentic_web" :
-        questionDistribution.web.authentic = data[fileName].length;
-        questionDistribution.total += questionDistribution.web.authentic;
+        for (let i = 0; i < data[fileName].length; i++) {
+          let questionWrapper = {
+            web:true,
+            phishing:false,
+            questionIndex: i
+          }
+          questionList.push(questionWrapper);
+        }
         break;
 
       case "phishing_mail" :
-        questionDistribution.mail.phishing = data[fileName].length;
-        questionDistribution.total += questionDistribution.mail.phishing;
+        for (let i = 0; i < data[fileName].length; i++) {
+          let questionWrapper = {
+            web:false,
+            phishing:true,
+            questionIndex: i
+          }
+          questionList.push(questionWrapper);
+        }
         break;
 
       case "phishing_web" :
-        questionDistribution.web.phishing = data[fileName].length;
-        questionDistribution.total += questionDistribution.web.phishing;
+        for (let i = 0; i < data[fileName].length; i++) {
+          let questionWrapper = {
+            web:true,
+            phishing:true,
+            questionIndex: i
+          }
+          questionList.push(questionWrapper);
+        }
         break;
     }
+  }
+
+  //fisher yates shuffling algorithm
+  function shuffleQuestions() {
+    let i,j,k;
+    for (i = questionList.length -1; i > 0; i--) {
+      j = Math.floor(Math.random() * i)
+      k = questionList[i]
+      questionList[i] = questionList[j]
+      questionList[j] = k
+    }
+    sessionStore.setItem("questionList", JSON.stringify(questionList));
   }
 
   //load data and start initialisation
   loadData();
 
-
+  //web image expaded close btn event listener
   document.getElementById('expandedImgClose').addEventListener("click", function () {
     controller.expandedImgContainer.classList.add("hidden");
   });
 
+  //web image expaded open btn event listener
   controller.questionController.webSection.browserContentImg.addEventListener("click", function () {
     controller.expandedImgContainer.classList.remove("hidden");
+  });
+
+  //try again btn on finish screen
+  document.getElementById('tryAgainBtn').addEventListener("click", function () {
+    controller.finishScreen.classList.add("invisible");
+    setTimeout(function () {
+      controller.finishScreen.classList.add("hidden");
+      controller.finishScreen.classList.remove("invisible");
+    }, 500);
   });
 
   // phishing btn event listener
@@ -246,9 +310,10 @@ var playModule = (function () {
   });
 
   //browser img load eventlistener for slide in animation
+  //wait until img is loaded, then show it
   controller.questionController.webSection.browserContentImg.addEventListener('load', function () {
     questionBlock.classList.replace("slide-out-top", "slide-in-top");
-  })
+  });
 
   //next btn eventlistener
   controller.gameController.nextBTN.addEventListener("click", function () {
@@ -257,13 +322,15 @@ var playModule = (function () {
     controller.hintController.display(false);
     //reset feedback
     controller.gameController.toggleFeedback(false, false, false);
-    //reset question answer
-    currentQuestion.answered = false;
     //play exit css animation
     questionBlock.classList.replace("slide-in-top","slide-out-top");
+
+    //select new question
+    selectNewQuestion();
+
     setTimeout(function () {
       //select and display new question after question slided out
-      selectQuestion();
+      displayQuestion();
       if(controller.questionController.webSection.browserContentImg.complete) {
         questionBlock.classList.replace("slide-out-top", "slide-in-top");
       }
