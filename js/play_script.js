@@ -331,9 +331,7 @@ var playModule = (function () {
     setTimeout(function () {
       //select and display new question after question slided out
       displayQuestion();
-      if(controller.questionController.webSection.browserContentImg.complete) {
-        questionBlock.classList.replace("slide-out-top", "slide-in-top");
-      }
+      questionBlock.classList.replace("slide-out-top", "slide-in-top");
     }, 1200);
   });
 })();
