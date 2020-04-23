@@ -77,7 +77,8 @@ var playModule = (function () {
     //show entry screen only if new user visits page
     controller.showEntryScreen(!resumeQuestions);
     displayQuestion();
-    controller.questionController.questionBlock.classList.replace("hidden", "slide-in-top");
+    controller.questionController.questionBlock.classList.remove("hidden");
+    controller.questionController.questionBlock.classList.add("slide-in-top");
     console.log("initialized: "+ JSON.stringify(userStats));
   }
 
@@ -290,6 +291,7 @@ var playModule = (function () {
     controller.expandedImgContainer.classList.remove("hidden");
   });
 
+
   //try again btn on finish screen
   document.getElementById('tryAgainBtn').addEventListener("click", function () {
     controller.finishScreen.classList.add("invisible");
@@ -312,7 +314,8 @@ var playModule = (function () {
   //browser img load eventlistener for slide in animation
   //wait until img is loaded, then show it
   controller.questionController.webSection.browserContentImg.addEventListener('load', function () {
-    questionBlock.classList.replace("slide-out-top", "slide-in-top");
+    questionBlock.classList.remove("slide-out-top");
+    questionBlock.classList.add("slide-in-top");
   });
 
   //next btn eventlistener
@@ -323,7 +326,8 @@ var playModule = (function () {
     //reset feedback
     controller.gameController.toggleFeedback(false, false, false);
     //play exit css animation
-    questionBlock.classList.replace("slide-in-top","slide-out-top");
+    questionBlock.classList.remove("slide-in-top");
+    questionBlock.classList.add("slide-out-top");
 
     //select new question
     selectNewQuestion();
@@ -331,7 +335,12 @@ var playModule = (function () {
     setTimeout(function () {
       //select and display new question after question slided out
       displayQuestion();
-      questionBlock.classList.replace("slide-out-top", "slide-in-top");
+      //entrance animation for mail, web has eventlistener in controller
+      if (controller.questionController.webSection.browserContentImg.complete
+        && questionBlock.classList.contains("slide-out-top")) {
+        questionBlock.classList.remove("slide-out-top");
+        questionBlock.classList.add("slide-in-top");
+      }
     }, 1200);
   });
 })();

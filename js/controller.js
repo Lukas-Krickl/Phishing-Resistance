@@ -133,6 +133,13 @@ const controllerModule = (function () {
     }
   };
 
+  questionController.webSection.browserContentImg.addEventListener("load", function () {
+    if (questionController.questionBlock.classList.contains("slide-out-top")) {
+      questionController.questionBlock.classList.remove("slide-out-top");
+      questionController.questionBlock.classList.add("slide-in-top");
+    }
+  });
+
   var gameController = {
     authenticBTN : document.getElementById('authenticBTN'),
     phishingBTN : document.getElementById('phishingBTN'),
@@ -184,7 +191,8 @@ const controllerModule = (function () {
       } else {
         //enable disabled btns hide, feedback and next btn
 
-        this.questionTitle.classList.replace("text-focus-in", "text-blur-out")
+        this.questionTitle.classList.remove("text-focus-in");
+        this.questionTitle.classList.add("text-blur-out");
         setTimeout(function () {
           gameController.questionTitle.classList.remove("incorrect", "correct");
           gameController.questionTitle.innerHTML = gameController.text.question;
@@ -195,7 +203,8 @@ const controllerModule = (function () {
           gameController.authenticBTN.disabled = false;
           gameController.authenticBTN.classList.remove("btn-wrong");
           //fade in animation
-          gameController.questionTitle.classList.replace("text-blur-out", "text-focus-in");
+          gameController.questionTitle.classList.remove("text-blur-out");
+          gameController.questionTitle.classList.add("text-focus-in");
         }, 1000); //delay = time of text blur out animation
 
       }
