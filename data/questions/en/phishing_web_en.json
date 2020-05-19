@@ -33,7 +33,7 @@
     "url":"https://www.paypal.com",
     "ssl": true,
     "file": "../../data/questions/en/phishing_screenshots/paypal-ssp1.jpg",
-    "flaws" : [1,12]
+    "flaws" : [12]
   },
   {
     "url":"https://N95mask-covid19.com",

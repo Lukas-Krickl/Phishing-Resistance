@@ -6,7 +6,7 @@
   },
   {
     "name":"URL Uniform Ressource Locator",
-    "description":"The URL of a website tells you where it comes from. It's a first indication of phishing if the domain name does not match the displayed page. The domain name consists of the words inside the URL between the 'http://' and the ending like '.com', '.de' or '.org'",
+    "description":"The URL of a website tells you where it comes from. It's a first indication of phishing if the domain name does not match the displayed page. The domain name consists of the words inside the URL between the 'https://' and the ending like '.com', '.de' or '.org'",
     "link":""
   },
   {
@@ -51,7 +51,7 @@
   },
   {
     "name":"Dangerous Documents",
-    "description":"So called file less attacks are common documents like PDFs or Microsoft Office documents with malicious program code injected.",
+    "description":"So called file less attacks are common documents like PDFs or Microsoft Office documents with malicious program code injected. If you open a file, scan it with your antivirus software first.",
     "link":"https://www.mcafee.com/enterprise/en-us/security-awareness/ransomware/what-is-fileless-malware.html"
   },
   {

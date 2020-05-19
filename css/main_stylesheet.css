@@ -218,7 +218,7 @@ section {
   align-items: center;
 }
 
-section * {
+section a, section button {
   margin: 0 2rem;
 }
 
@@ -399,6 +399,19 @@ li a {
   white-space: nowrap;
 }
 
+.icon-btn {
+}
+
+.icon-btn img {
+  height: 1rem;
+  width: 1rem;
+
+}
+
+.icon-btn:hover img {
+    filter: invert(1);
+}
+
 .btn-blue {
   color: white;
   background-color: var(--primary-color);
@@ -429,6 +442,10 @@ li a {
 .page-title {
   text-align: center;
   padding: 1rem 0;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .small {

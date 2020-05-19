@@ -1,0 +1,71 @@
+{
+  "web":[
+    {
+      "name":"Pay attention to look and feel",
+      "description":"You read all this hints on phishing attacks and become very resistant against them, but few days later when unconsciously browsing the web you may just not think of them and are again vulnerable to phishing. <b>If you take away one thing from Phishing Resistance then let it be paying general attention to the look and feel of websites.</b> If a site is a bit unprofessional, unexpected or not fluent come back to Phishing Resistance, refresh you knowledge and defend yourself against phishing attacks.",
+      "link":""
+    },
+    {
+      "name":"Where is the website comming from?",
+      "description":"The URL (Uniform Ressource Locator) or more commonly links of websites tell you where it comes from. It's a first indication of phishing if the domain name does not match the name of the displayed page. The domain name consists of the words inside the URL between the 'https://' and the ending like '.com', '.de' or '.org'",
+      "link":""
+    },
+    {
+      "name":"Beware domain permutation",
+      "description":"Website URLs are unique and well defined to each character.  It could be faked easily by altering a letter or switching some words so that they look very similar to the original one, but lead to a different website instead. An example would be the faked link https://micosofts.com where an 's' was appended which looks unproblematic on first sight but could be a malicious website instead. Be careful with familiar looking links too.",
+      "link":"https://en.wikipedia.org/wiki/Typosquatting"
+    },
+    {
+      "name":"Spoofed websites",
+      "description":"Faked websites which look exaclty like the original, but instead of signing into your user account, you just sent your account credentials to some attackers. After you passed them your username and password, they redirect you to the original page and sign you in, so you don't notice what just happened. This can happen very silently and you only realize what happend, when the attackers already did some damage. The easiest way to prevent this is using your own bookmarked links only, to access the login." ,
+      "link":"https://www.phishing.org/phishing-and-spoofing"
+    },
+    {
+      "name":"Never sign in with http (unencrypted). Use https (encrypted) instead!",
+      "description":"The lock in your browser near the URL indicates if the connection is encrypted or not. The open lock signals a unencrypted http connection where all your data is transmitted like a open book. Never enter passwords on a website with a open lock. If you see a closed lock in your browser, a encrypted https connection is used and your passwords arrive safe on the other end.",
+      "link":""
+    },
+    {
+      "name":"Trust your own antivirus software",
+      "description":"There are malicious websites which say that your computer was infected by a virus. Websites have very little insight about your computer if your system is healthy and up to date. If they say your system is infected by a virus and their software will cure it, stay calm, a website can't scan your whole computer. Use your own antivirus software to scan for malware instead.",
+      "link":""
+    },
+    {
+      "name":"Question everything",
+      "description":"Random lottery wins, special money saving offers, dangerous virus attacks or blackmailed with a very private video of yours. Attackers will put victims under pressure either with a generous offer or by threatening, so they can't thing rational anymore and do thoughtless things. Stay calm. On the one hand, nothing is for free and on the other hand, do your updates and trust your computer system. It protects your data from unallowed access.",
+      "link":""
+    }
+  ],
+  "mail":[
+    {
+      "name":"E-mail address spoofing",
+      "description":"A mail with a certain e-mail address could be sent by a very different one. The sender's e-mail field can be manipulated easily.",
+      "link":"https://en.wikipedia.org/wiki/Email_spoofing"
+    },
+    {
+      "name":"Compressed Links",
+      "description":"There are third party services to reduce the length of a hyperlink but they make them unreadable so you don't know where they are leading to. Trusworthy sources would never have reasons to hide their location, as it would make them untrustworthy.",
+      "link":"https://en.wikipedia.org/wiki/URL_shortening"
+    },
+    {
+      "name":"Drive by download",
+      "description":"Upon visiting a website, clicking a link or accessing e-mail attachements, malware could be downloaded in the background without you noticing. Instead of clicking a link you just gave the permission for the download instead.",
+      "link":"https://en.wikipedia.org/wiki/Drive-by_download"
+    },
+    {
+      "name":"Spam",
+      "description":"E-mails you don't have requested. Most of them are harmless but still unwanted.",
+      "link":"https://en.wikipedia.org/wiki/Email_spam"
+    },
+    {
+      "name":"Dangerous Documents",
+      "description":"So called file less attacks are common documents like PDFs or Microsoft Office documents with malicious program code injected. If you open a file, scan it with your antivirus software first.",
+      "link":"https://www.mcafee.com/enterprise/en-us/security-awareness/ransomware/what-is-fileless-malware.html"
+    },
+    {
+      "name":"Urgent Notifications and Confirmation",
+      "description":"Account validation and customer service. These are reasons why valid companies send out authentic e-mails. You should always ask yourself: 'Did I request the e-mail?' When in doubt go to the official page by a searchengine and check yourself.",
+      "link":""
+    }
+  ]
+}

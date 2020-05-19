@@ -1,0 +1,22 @@
+
+.hint-box-wrapper {
+  min-width: 60vw;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: var(--light-bg);
+  overflow-y: auto;
+}
+
+.hint-box {
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+}
+
+.hint-item {
+  margin: 1rem;
+  margin-top: 0;
+  max-width: 45%;
+}

@@ -12,7 +12,8 @@
     <title>Phishing Resistance</title>
     <link rel="icon" href="../../assets/pr-icons/phishing-resistance-symbol-white.svg" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" type="text/css" href="../../css/main_stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="../../css/play_style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/result_style.css">
+
     <style media="screen">
       body {-webkit-animation:fade-in-fwd .6s cubic-bezier(.39,.575,.565,1.000) both;animation:fade-in-fwd .5s cubic-bezier(.39,.575,.565,1.000) both}
       /* ----------------------------------------------
@@ -24,17 +25,7 @@
       @-webkit-keyframes fade-in-fwd{0%{-webkit-transform:translateZ(-80px);transform:translateZ(-80px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}@keyframes fade-in-fwd{0%{-webkit-transform:translateZ(-80px);transform:translateZ(-80px);opacity:0}100%{-webkit-transform:translateZ(0);transform:translateZ(0);opacity:1}}
     </style>
   </head>
-  <body id="body">
-    <div class="entry-screen" id="entryScreen">
-      <img src="../../assets/pr-icons/phishing-resistance-logo-lg-squared.svg" height="150px" alt="Phishing Resistance">
-      <h1>Are you resistant against phishing attacks?</h1>
-    </div>
-
-    <div class="img-expand hidden" id="expandedImgContainer">
-      <iframe src="" id="expandedImgIframe"></iframe>
-      <button type="button" name="close-expanded-img" id="expandedImgClose"><img  src="../../assets/icons/close.svg" height="40px" alt="close"></button>
-    </div>
-
+  <body>
     <div class="page">
       <header>
         <a class="nav-badge" href="../.././index.html"><img  src="../../assets/pr-icons/phishing-resistance-logo-lg.svg" alt="Phishing Resistance"></a>
@@ -51,41 +42,88 @@
           <button class="nav-mobile-menu" type="button" name="close-hamburger-menu" onclick="toggleMobileNav(false);"><img  src="../../assets/icons/close.svg" height="40px" alt="close"></button>
         </nav>
       </header>
-      <h3 class="question-header text-focus-in" id="questionTitle">Is this authentic or a phishing attack?</h3>
-      <main>
-          <div class="hints hint-hidden hint-text-hidden" id="hintBox">
-            <h4>How you could identify this attack:</h4>
-            <ul id="hintList">
-            </ul>
-          </div>
-          <div class="question hidden" id="questionBlock">
-            <div class="web hidden" id="webBlock">
-              <div class="browser-header" >
-                <img class="browser-controls" src="../../assets/icons/browser-ctrl.svg" height="15px" alt=" " >
-                <div class="url-box">
-                  <img src="../../assets/icons/lock-closed.svg" height="18px" alt="lock" id="browserLock">
-                  <span id="browserUrl">https://some-url.com</span>
-                </div>
+      <h3 class="text-center">End of Round</h3>
+      <main class="res-main">
+        <div class="results-box">
+          <div class="result-question">
+            <h4>Round: <span id="roundNumber">---</span></h4>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Correct:</td>
+                  <td id="correctHeader">--</td>
+                  <td><div class="chart-marker chart-green"></div></td>
+                </tr>
+                <tr>
+                  <td>Incorrect:</td>
+                  <td id="incorrectHeader">--</td>
+                  <td><div class="chart-marker chart-grey"></div></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="result-bar" id="totalResultBar">
+              <div class="result-bar-green ">
+                ---
               </div>
-              <div class="browser-content">
-                <img src="" alt="browser content" id="browserContentImg">
+              <div class="result-bar-grey ">
+                ---
               </div>
             </div>
-            <div class="mail hidden" id="mailBlock">
-              <img class="mail-icon" src="../../assets/icons/mail_outline.svg" height="30px" alt="">
-              <div class="mail-header" id="mailHeader">
-                <!-- mail header -->
+          </div>
+          <div class="result-detailed">
+            <h4>Detailed Statistics:</h4>
+            <table>
+              <tbody id="detailedTable">
+                <tr>
+                  <td>Identified Phishing:</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td><div class="chart-marker chart-violett"></div></td>
+                </tr>
+                <tr>
+                  <td>Identified Authentic:</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td><div class="chart-marker chart-blue"></div></td>
+                </tr>
+                <tr>
+                  <td>Missed Phishing:</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td><div class="chart-marker chart-orange"></div></td>
+                </tr>
+                <tr>
+                  <td>Missed Authentic:</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td><div class="chart-marker chart-yellow"></div></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="bar-chart" id="detailedBarChart">
+              <div class="bar-chart-bar">
+                <div class="chart-violett"></div>
+                <div></div>
               </div>
-              <p class="mail-content" id="mailContent">
-                <!-- mail content -->
-              </p>
+              <div class="bar-chart-bar">
+                <div class="chart-blue"></div>
+                <div></div>
+              </div>
+              <div class="bar-chart-bar">
+                <div class="chart-orange"></div>
+                <div></div>
+              </div>
+              <div class="bar-chart-bar">
+                <div class="chart-yellow"></div>
+                <div></div>
+              </div>
             </div>
           </div>
+        </div>
       </main>
-      <section class="answer-section">
-        <button class="btn btn-green" type="button" name="authentic" id="authenticBTN" >That's OK</button>
-        <button class="btn btn-blue invisible" type="button" name="next" id="nextBTN">Next</button>
-        <button class="btn btn-red" type="button" name="phishing" id="phishingBTN" >Phishing</button>
+      <section>
+        <a class="btn btn-outline-blue" href="play.html">Next Round</a>
+        <a class="btn btn-blue" href="hints.html">Increase Resistance</a>
       </section>
       <footer>Illustrations designed by macrovector<a href="http://www.freepik.com"> / Freepik</a></footer>
     </div>
@@ -93,14 +131,9 @@
       <img src="../../assets/illustrations/fisher4.jpg" height="280px" alt=" ">
       <img src="../../assets/illustrations/fisher13.jpg" height="250px" alt=" ">
     </div>
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
-    <script defer type="text/javascript" src="../../js/firestore_controller.js"></script>
     <script defer type="text/javascript" src="../../js/main_script.js"></script>
-    <script defer type="text/javascript" src="../../js/config.js"></script>
-    <script defer type="text/javascript" src="../../js/controller.js"></script>
     <script defer type="text/javascript" src="../../js/storage_controller.js"></script>
-    <script defer type="text/javascript" src="../../js/play_script.js"></script>
+    <script defer type="text/javascript" src="../../js/round_results_script.js"></script>
 
   </body>
 </html>

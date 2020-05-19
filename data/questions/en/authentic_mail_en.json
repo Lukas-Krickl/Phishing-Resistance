@@ -32,12 +32,12 @@
   {
     "from":"security@facebookmail.com",
     "subject":"Sign into Facebook by just one click!",
-    "content":"<h5>Facebook</h5><br>Hallo,<br><br>do you have issues with the signin of your facebook account? In case you need help you can click the button below and we sign you in. <br><br><a> Sign in with one click</a><br><br>A sign in attempt failed. <a>Tell us if it wasn't you.</a>"
+    "content":"<h4>Facebook</h4><br>Hallo,<br><br>do you have issues with the signin of your facebook account? In case you need help you can click the button below and we sign you in. <br><br><a> Sign in with one click</a><br><br>A sign in attempt failed. <a>Tell us if it wasn't you.</a>"
   },
   {
     "from":"account-security-noreply@account.microsoft.com",
     "subject":"Security information of your Microsoft-Account",
-    "content":"<h6>Microsoft-Account</h6><br><br>A process of replacing your security information was started. If you requested this by youself, click the link below<br><br><a>I requested this</a>"
+    "content":"<h4>Microsoft-Account</h4><br><br>A process of replacing your security information was started. If you requested this by youself, click the link below<br><br><a>I requested this</a>"
   },
   {
     "from":"newsletters@wanderlust.co.uk",

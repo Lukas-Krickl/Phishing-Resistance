@@ -2,8 +2,9 @@
 var playModule = (function () {
   const controller = controllerModule;
   const firestore = firestore_controller_module;
+  const storage = storageControllerModule;
   const sessionStore = window.sessionStorage;
-  const localStore = window.localStorage;
+  var switchToRoundResults = false;
 
   var data = {  //attributes used for automatic file loading, if changed, -> change loadData function
     flaws:"",
@@ -28,44 +29,23 @@ var playModule = (function () {
   };
 
   //read questionlist from session storage if user resumes session
-  const resumeQuestions = sessionStore.getItem("questionListIndex") ? true : false;
+  const resumeQuestions = sessionStore.getItem("questionListIndex");
   var questionList = [];
   if (resumeQuestions) {
-    currentQuestion.questionListIndex = sessionStore.getItem("questionListIndex");
+    currentQuestion.questionListIndex = resumeQuestions;
     questionList = JSON.parse(sessionStore.getItem("questionList"));
     console.log("session restored:");
   }
 
-  //userStats is a array with amount [correct phish, correct auth, missed phish, missed auth]
-  //read locally stored user stats
-  var userStats = localStore.getItem("userStats");
-  if (userStats) {
-    try {
-      console.log("exisiting user: "+userStats);
-      userStats = JSON.parse(userStats);
-    } catch (e) {
-      console.log("error on parsing userstats: "+JSON.stringify(e));
-      userStats = [0,0,0,0];
-    }
-  } else {
-    userStats = [0,0,0,0];
-    console.log("new user initialized");
-  }
+  //read all user statistics
+  storage.readRoundStats();
 
   //firestore init
-  var fireId = localStore.getItem("fireId");
-  if (!fireId) {
-    firestore.newEntry(function (newId) {
-      fireId = newId;
-      localStore.setItem("fireId", fireId);
-      console.log("fireID set"+fireId);
-    });
+  //if User is not set in local storage request new
+  if (!storage.readFireUser()) {
+    firestore.newUserEntry(storage.storeNewFireUser);
   }
 
-  function errorScreen(reason) {
-    // TODO: for testing until error screen exists
-    console.error("ERROR SCREEN PRINTS: "+ reason);
-  }
 
   //prepares first question
   function init() {
@@ -79,16 +59,15 @@ var playModule = (function () {
     displayQuestion();
     controller.questionController.questionBlock.classList.remove("hidden");
     controller.questionController.questionBlock.classList.add("slide-in-top");
-    console.log("initialized: "+ JSON.stringify(userStats));
+    console.log("initialized");
   }
 
   function selectNewQuestion() {
     currentQuestion.answered = false;
     currentQuestion.questionListIndex++;
-    //if all questions are processed, show endscreen and reshuffle
+    //if all questions are processed reshuffle
     if (currentQuestion.questionListIndex == questionList.length) {
       console.log("all questions processed, reshuffling");
-      controller.finishScreen.classList.remove("hidden");
       currentQuestion.questionListIndex = 0;
       shuffleQuestions();
     }
@@ -96,7 +75,7 @@ var playModule = (function () {
     currentQuestion.questionWrapper.web = questionList[currentQuestion.questionListIndex].web;
     currentQuestion.questionWrapper.phishing = questionList[currentQuestion.questionListIndex].phishing;
     currentQuestion.questionWrapper.questionIndex = questionList[currentQuestion.questionListIndex].questionIndex;
-    console.log("current question Nr: "+JSON.stringify(currentQuestion.questionListIndex));
+    console.log("current question Nr: "+currentQuestion.questionListIndex);
   }
 
   //randomly selects any question
@@ -141,7 +120,7 @@ var playModule = (function () {
       }
       controller.hintController.setHints(hints);
     } else {
-      errorScreen("Could not display hints");
+      console.error("Could not display hints");
     }
   }
 
@@ -151,28 +130,33 @@ var playModule = (function () {
 
       if (currentQuestion.questionWrapper.phishing) {
         if(answer === "phishing") {
-          userStats[0]++;
+          storage.addResult("corrPhish");
           controller.gameController.toggleFeedback(true, true, true);
         } else {
-          userStats[2]++;
+          storage.addResult("missPhish");
           controller.gameController.toggleFeedback(true, false, true);
         }
         //display phishing hints
         controller.hintController.display(true);
       } else {
         if (answer === "authentic") {
-          userStats[1]++;
+          storage.addResult("corrAuth");
           controller.gameController.toggleFeedback(true, true, false);
         } else {
-          userStats[3]++;
+          storage.addResult("missAuth");
           controller.gameController.toggleFeedback(true, false, false);
         }
       }
-      //write to storage
-      localStore.setItem("userStats", JSON.stringify(userStats));
-      firestore.updateStats(fireId, userStats);
+
       sessionStore.setItem("questionListIndex", currentQuestion.questionListIndex);
-      console.log("stats after answer: "+localStore.getItem("userStats"));
+      firestore.updateStats(storage.getCurrentTestID(), storage.getRoundStats().current);
+      if (storage.hasRoundEnded()) {
+        storage.nextRound();
+        firestore.newRound(storage.getFireUserID(), storage.storeCurrentTestID);
+        switchToRoundResults = true;
+      }
+
+      console.log("stats after answer: "+JSON.stringify(storage.getRoundStats().current));
     }
   }
 
@@ -194,7 +178,7 @@ var playModule = (function () {
         storeJson(JSON.parse(http.responseText), fileName);
 
       } else if(http.status === 403 || http.status === 404) {
-        errorScreen("Error while loading files: " + http.status);
+        console.error("Error while loading files: " + http.status);
       }
     }
   }
@@ -291,16 +275,6 @@ var playModule = (function () {
     controller.expandedImgContainer.classList.remove("hidden");
   });
 
-
-  //try again btn on finish screen
-  document.getElementById('tryAgainBtn').addEventListener("click", function () {
-    controller.finishScreen.classList.add("invisible");
-    setTimeout(function () {
-      controller.finishScreen.classList.add("hidden");
-      controller.finishScreen.classList.remove("invisible");
-    }, 500);
-  });
-
   // phishing btn event listener
   controller.gameController.phishingBTN.addEventListener("click", function () {
     evaluateAnswer("phishing");
@@ -320,6 +294,15 @@ var playModule = (function () {
 
   //next btn eventlistener
   controller.gameController.nextBTN.addEventListener("click", function () {
+    //if round ended, nest btn directs to round result page
+    if (switchToRoundResults) {
+      //wait until slideout animation finished
+      document.getElementById('body').classList.add("fade-out")
+      setTimeout(function () {
+        window.location.href="round_result.html";
+      }, 800);
+    }
+
     let questionBlock = controller.questionController.questionBlock;
     //hide hints
     controller.hintController.display(false);

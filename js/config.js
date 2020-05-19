@@ -29,5 +29,7 @@ const config = {
     incorrectPhish:"Incorrect! You got phished.",
     correctAuth:"Correct! It's safe to use.",
     incorrectAuth:"Incorrect! It's safe to use."
-  }
+  },
+  hints_en:"data/hints_en.json"
+
 };

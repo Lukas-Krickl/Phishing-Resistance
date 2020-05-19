@@ -32,8 +32,8 @@
   {
     "from":"no-reply@lbbspecials.com",
     "subject":"Are You Unemployed?",
-    "content":"Are you Unemployed or Maybe you Are stuck at home due Quarantine.<br>Have you seriously considered working from the comfort of your own home? With what I’m giving you today, you can quit immediately.<br>This is what your new life looks like<br>Wake up, tap your phone a few times, watch the money roll in.<br>Sounds good, huh? That’s what I do every day.<br>And what you can too, with My Secret System.<br> Click below to get your time-Limited access",
-    "flaws":[5,8,9]
+    "content":"Are you Unemployed or Maybe you Are stuck at home due Quarantine.<br>Have you seriously considered working from the comfort of your own home? With what I’m giving you today, you can quit immediately.<br>This is what your new life looks like<br>Wake up, tap your phone a few times, watch the money roll in.<br>Sounds good, huh? That’s what I do every day.<br>And what you can too, with My Secret System.<br> Click below to get your time-Limited access<br><br><a>https://bit.ly/34gfaj/</a>",
+    "flaws":[5,6,8,9]
   },
   {
     "from":"info@cyma.eu",
@@ -42,9 +42,9 @@
     "flaws":[9]
   },
   {
-    "from":"delivery@slimming-courses.sx",
+    "from":"delivery@sliming-courses.sx",
     "subject":"Revolutionary methods for a diet!",
-    "content":"Dear customer,<br><br>We like to provide you with our new program of reducing some overweight.<br>With this easy training you look like in your dreams in no time!<br><br>You can find the new e-book version of  our training program in the PDF of this mail.<br><br> Stay healty!",
+    "content":"Dear customer,<br><br>We like to provide you with our new program of reducing some overweight<br>With this easy training you look like in your dreams in no time!<br><br>You can find the new e-book version of our training program in the pdf of this mail.",
     "flaws":[10]
   },
   {
@@ -55,8 +55,8 @@
   },
   {
     "from":"service-for-folks@linkin.com",
-    "subject":"COVID-19  affects not only humans but also businesses",
-    "content":"This difficult situation should not affect your business.<br><br> As a lot of countries are quaratined, people are also affected by a financial crisis. A lot of workers depend on a monthly paycheck and don't have enough financial backup to just stay at home, but What if you could stay at home and earn money like in your normal job. This service provides a system everyone can use from home and gain financial stability.<br><br><a>A service for folks</a>",
+    "subject":"COVID-19  affects not only humans but also busineses",
+    "content":"This dificult situation should not affect your busines.<br><br> As a lot of countries are quaratined, people are also affected by a financial crisis. A lot of workers depend on a monthly paycheck and don't have enough financial backup to just stay home, but What if you could stay at home and earn money like in your normal job. This service provides a system everyone can use from home and gain financial stability.<br><br><a>A service for folks</a>",
     "flaws":[0,5]
   }
 ]
