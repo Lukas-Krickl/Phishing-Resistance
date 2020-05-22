@@ -98,11 +98,11 @@ const storageControllerModule = (function () {
   // read fireID and if its set return true, return false if not found
   function readFireUser() {
     fireUserID = localStore.getItem("fireUserID");
+    console.log("fireUserID read: "+fireUserID);
     if (fireUserID) {
-      console.log("fireUserID read: "+fireUserID);
       currentTestID = localStore.getItem("currentTestID");
       if (currentTestID) {
-        console.log("currentTestID read");
+        console.log("currentTestID read "+currentTestID);
         return true;
       }
     }
@@ -116,8 +116,8 @@ const storageControllerModule = (function () {
   function storeNewFireUser(newFireUserID, newTestID) {
     //store user
     fireUserID = newFireUserID;
-    localStore.setItem("fireUserID ", fireUserID);
-    console.log("fireUserID set "+fireUserID);
+    localStore.setItem("fireUserID", fireUserID);
+    console.log("fireUserID stored "+fireUserID);
     //store test
     storeCurrentTestID(newTestID);
   }
@@ -128,10 +128,11 @@ const storageControllerModule = (function () {
 
   function storeCurrentTestID(testID) {
     currentTestID = testID;
-    localStore.setItem("currentTestID ", currentTestID);
-    console.log("currentTestID set "+currentTestID);
+    localStore.setItem("currentTestID", currentTestID);
+    console.log("currentTestID stored "+currentTestID);
   }
 
+  readRoundStats();
 
   return {
     readRoundStats:readRoundStats,

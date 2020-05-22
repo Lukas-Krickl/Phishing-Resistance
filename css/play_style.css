@@ -79,11 +79,6 @@
   overflow: hidden !important;
 }
 
-.question-header {
-  text-align: center;
-  margin: 1rem;
-}
-
 .question {
   flex-grow: 5;
   max-width: 65rem;

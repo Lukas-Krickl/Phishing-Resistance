@@ -115,6 +115,13 @@ h6 {
   font-weight: 600;
 }
 
+p {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
 @media only screen and (max-width: 650px)  {
   h1 {
     font-size: 3rem;
@@ -129,32 +136,20 @@ h6 {
   }
 
   h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   h5 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   h6 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
   }
-
-  p {
-    font-size: 1rem;
-    margin: 0;
-    font-weight: 400;
-    line-height: 1.15;
-  }
 }
 
-p {
-  font-size: 1.1rem;
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.15;
-}
+
 
 img {
   vertical-align: middle;
@@ -209,7 +204,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  padding: 1rem 5%;
+  padding: 0rem 5%;
 }
 
 section {
@@ -367,7 +362,7 @@ li a {
 
 @media only screen and (max-width: 650px)  {
   .page {
-    grid-template-rows: 10% 8% 68% 12% 2%;
+    grid-template-rows: 10% 8% 70% 12%;
   }
 
   .page-1-main {
@@ -441,7 +436,7 @@ li a {
 
 .page-title {
   text-align: center;
-  padding: 1rem 0;
+  padding-bottom: .5rem;
 }
 
 .text-center {

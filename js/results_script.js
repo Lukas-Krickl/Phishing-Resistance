@@ -2,7 +2,6 @@
 var resultModule = (function () {
   var viewTotalStats = true;
   const storage = storageControllerModule;
-  storage.readRoundStats();
   const totalStats = storage.getTotalStats();
   const lastRoundNr = storage.getRoundStats().previous.length;
   var currentDisplayedRound = lastRoundNr;
@@ -13,15 +12,16 @@ var resultModule = (function () {
   const viewRound = document.getElementById('viewRound');
   const heading = document.getElementById('heading');
   const statsHeading = document.getElementById('statsHeading');
-  const statsHeadingCounter = statsHeading.getElementsByTagName('span');
   const correctHeader = document.getElementById('correctHeader');
   const incorrectHeader = document.getElementById('incorrectHeader');
+  const headerCounter = document.getElementById('headerCounter');
 
 
   var totalQuestions = 0;
   for (var i = 0; i < totalStats.length; i++) {
     totalQuestions+=totalStats[i];
   }
+  console.log("totalQuestions "+totalQuestions);
 
   //total result bar
   var totalStatsController = {
@@ -110,7 +110,7 @@ var resultModule = (function () {
     //headings
     heading.innerHTML = "Total Results";
     statsHeading.firstChild.nodeValue = "Questions answered: ";
-    statsHeadingCounter.innerHTML = totalQuestions;
+    headerCounter.innerHTML = totalQuestions;
     correctHeader.innerHTML = (totalStats[0] + totalStats[1]);
     incorrectHeader.innerHTML = (totalStats[2] + totalStats[3]);
 
@@ -131,11 +131,17 @@ var resultModule = (function () {
     }
 
     //manage buttons
+    //next
     if (round < lastRoundNr) {
-      backBtn.classList.toggle('hidden', false);
+      nextBtn.classList.toggle('invisible', false);
+    } else {
+      nextBtn.classList.toggle('invisible', true);
     }
+    //back
     if (round > 1) {
-      nextBtn.classList.toggle('hidden', false);
+      backBtn.classList.toggle('invisible', false);
+    } else {
+      backBtn.classList.toggle('invisible', true);
     }
 
     viewTotal.classList.toggle('hidden', false);
@@ -144,7 +150,7 @@ var resultModule = (function () {
     //headings
     heading.innerHTML = "Round Results";
     statsHeading.firstChild.nodeValue = "Round: ";
-    statsHeadingCounter.innerHTML = round;
+    headerCounter.innerHTML = round+"/"+lastRoundNr;
     correctHeader.innerHTML = (roundStatsArray[0] + roundStatsArray[1]);
     incorrectHeader.innerHTML = (roundStatsArray[2] + roundStatsArray[3]);
 
@@ -163,8 +169,12 @@ var resultModule = (function () {
     displayRoundStats(currentDisplayedRound+1);
   });
 
-  viewTotal.addEventListener("click", displayTotalStats);
-  viewRound.addEventListener("click", displayRoundStats);
+  viewTotal.addEventListener("click", function () {
+    displayTotalStats();
+  });
+  viewRound.addEventListener("click", function () {
+    displayRoundStats();
+  });
 
 
 

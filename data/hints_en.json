@@ -32,29 +32,33 @@
     },
     {
       "name":"Question everything",
-      "description":"Random lottery wins, special money saving offers, dangerous virus attacks or blackmailed with a very private video of yours. Attackers will put victims under pressure either with a generous offer or by threatening, so they can't thing rational anymore and do thoughtless things. Stay calm. On the one hand, nothing is for free and on the other hand, do your updates and trust your computer system. It protects your data from unallowed access.",
+      "description":"Random lottery wins, special money saving offers, dangerous virus attacks or blackmailed with a very private video of yours. Attackers will put victims under pressure either with a generous offer or by threatening them, so they can't think rational anymore and do thoughtless things. <br>Stay calm. Nothing is for free and you are propably not the 1,000,000th user winning a reward.  Secondly, do your updates and trust your computer system. It protects your data from unallowed access.",
       "link":""
     }
   ],
   "mail":[
     {
-      "name":"E-mail address spoofing",
-      "description":"A mail with a certain e-mail address could be sent by a very different one. The sender's e-mail field can be manipulated easily.",
+      "name":"Fake E-mail address and spoofing",
+      "description":"To simplify how emails work: See e-mails just like regular letters made out of paper. Usually the postman delivers all letters into your mailbox. However this doesn't deny anyone else from creating a fake letter, writing any name in the senders field and putting it into your mailbox aswell. E-mails work very similar in that sense so be sceptical with the senders field.",
       "link":"https://en.wikipedia.org/wiki/Email_spoofing"
+    },{
+      "name":"Verifying the sender of an e-mail",
+      "description":"The only way to check the authenticity of the sender is to verify it by SPF or DKIM. The fastest way of checking if a mail passed one of these protocolls and is authentic, is to view the source code of the e-mail. In most e-mail applications this can be done with a button, stating 'show original', 'show source' or something similar. If you go through all this text, watch out for <b>spf=pass</b> or <b>dkim=pass</b> and if you see one of them, the sender of the mail is authentic.",
+      "link":"https://www.sparkpost.com/blog/understanding-spf-and-dkim/"
     },
     {
       "name":"Compressed Links",
-      "description":"There are third party services to reduce the length of a hyperlink but they make them unreadable so you don't know where they are leading to. Trusworthy sources would never have reasons to hide their location, as it would make them untrustworthy.",
+      "description":"There are third party services to reduce the length of a hyperlink but they make them unreadable so you don't know where they are leading to. ",
       "link":"https://en.wikipedia.org/wiki/URL_shortening"
     },
     {
       "name":"Drive by download",
-      "description":"Upon visiting a website, clicking a link or accessing e-mail attachements, malware could be downloaded in the background without you noticing. Instead of clicking a link you just gave the permission for the download instead.",
+      "description":"Upon visiting a website, clicking a link or accessing e-mail attachements, malware could be downloaded in the background without you noticing. Instead of clicking a link you just gave the permission for the download instead and that is a reason why compressed links should be avoided.",
       "link":"https://en.wikipedia.org/wiki/Drive-by_download"
     },
     {
       "name":"Spam",
-      "description":"E-mails you don't have requested. Most of them are harmless but still unwanted.",
+      "description":"E-mails you don't have requested. Most of them are harmless but still unwanted. The reason why you get spam could be a security leak of a service your are using or furthermore untrustfull services could have sold your data to 3rd parties. Another reason could be guessing e-mail addresses by computationally combining firstnames, lastnames and a mail provider.",
       "link":"https://en.wikipedia.org/wiki/Email_spam"
     },
     {

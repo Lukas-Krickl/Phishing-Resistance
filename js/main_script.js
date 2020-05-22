@@ -2,7 +2,7 @@
 const mobileNavContainer = document.getElementById('navLinks');
 const language = "EN";
 
-document.getElementById('version').innerHTML = "v. 0.3.0 alpha";
+document.getElementById('version').innerHTML = "v. 1.0.0 beta";
 
 function toggleMobileNav(show) {
   mobileNavContainer.classList.toggle("nav-closed", !show);

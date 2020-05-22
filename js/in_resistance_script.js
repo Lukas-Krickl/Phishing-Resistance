@@ -87,8 +87,8 @@ const in_resistance_module = (function () {
     webHintBox.classList.toggle("hidden", true);
     mailHintBox.classList.toggle("hidden", false);
     //change buttons
-    webHintBtn.classList.toggle("hidden", true);
-    mailHintBtn.classList.toggle("hidden", false);
+    webHintBtn.classList.toggle("hidden", false);
+    mailHintBtn.classList.toggle("hidden", true);
     //change header
     header.innerHTML = "Improve your Phishing Resistance in E-Mails";
   });
@@ -98,8 +98,8 @@ const in_resistance_module = (function () {
     webHintBox.classList.toggle("hidden", false);
     mailHintBox.classList.toggle("hidden", true);
     //change buttons
-    webHintBtn.classList.toggle("hidden", false);
-    mailHintBtn.classList.toggle("hidden", true);
+    webHintBtn.classList.toggle("hidden", true);
+    mailHintBtn.classList.toggle("hidden", false);
     //change header
     header.innerHTML = "Improve your Phishing Resistance on websites";
   });

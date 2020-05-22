@@ -1,8 +1,7 @@
 "use strict";
 const roundResultsModule = (function () {
   const storage = storageControllerModule;
-  storage.readRoundStats();
-  const roundStats = storage.readRoundStats();
+  const roundStats = storage.getRoundStats();
   const lastRoundNumber = roundStats.previous.length;
   const lastRoundStats = roundStats.previous[lastRoundNumber-1];
   const totalQuestions = 15;

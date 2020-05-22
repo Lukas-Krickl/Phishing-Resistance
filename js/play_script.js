@@ -37,9 +37,6 @@ var playModule = (function () {
     console.log("session restored:");
   }
 
-  //read all user statistics
-  storage.readRoundStats();
-
   //firestore init
   //if User is not set in local storage request new
   if (!storage.readFireUser()) {
