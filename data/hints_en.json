@@ -2,7 +2,7 @@
   "web":[
     {
       "name":"Pay attention to look and feel",
-      "description":"You read all this hints on phishing attacks and become very resistant against them, but few days later when unconsciously browsing the web you may just not think of them and are again vulnerable to phishing. <b>If you take away one thing from Phishing Resistance then let it be paying general attention to the look and feel of websites.</b> If a site is a bit unprofessional, unexpected or not fluent come back to Phishing Resistance, refresh you knowledge and defend yourself against phishing attacks.",
+      "description":"You read all this hints on phishing attacks and become very resistant against them, but few days later when unconsciously browsing the web you may just not think of them and are again vulnerable to phishing. <b>If you take away one thing from Phishing Resistance then let it be paying general attention to the look and feel of websites.</b> If a site is a bit unprofessional, unexpected or not fluent come back to Phishing Resistance, refresh your knowledge and defend yourself against phishing attacks.",
       "link":""
     },
     {
@@ -17,12 +17,12 @@
     },
     {
       "name":"Spoofed websites",
-      "description":"Faked websites which look exaclty like the original, but instead of signing into your user account, you just sent your account credentials to some attackers. After you passed them your username and password, they redirect you to the original page and sign you in, so you don't notice what just happened. This can happen very silently and you only realize what happend, when the attackers already did some damage. The easiest way to prevent this is using your own bookmarked links only, to access the login." ,
+      "description":"Faked websites which look exaclty like the original, but instead of signing into your user account, you just sent your account credentials to some attackers. After you passed them your username and password, they redirect you to the original page and sign you in, so you don't notice what just happened. This can happen very silently and you only realize what happend, when the attackers already did some damage. The easiest way to prevent this, is using your own bookmarked links only, to access the login." ,
       "link":"https://www.phishing.org/phishing-and-spoofing"
     },
     {
       "name":"Never sign in with http (unencrypted). Use https (encrypted) instead!",
-      "description":"The lock in your browser near the URL indicates if the connection is encrypted or not. The open lock signals a unencrypted http connection where all your data is transmitted like a open book. Never enter passwords on a website with a open lock. If you see a closed lock in your browser, a encrypted https connection is used and your passwords arrive safe on the other end.",
+      "description":"The lock in your browser near the URL indicates if the connection is encrypted or not. The open lock signals an unencrypted http connection where all your data is transmitted like an open book. Never enter passwords on a website with a open lock. If you see a closed lock in your browser, an encrypted https connection is used and your passwords arrive safe on the other end.",
       "link":""
     },
     {
@@ -32,14 +32,14 @@
     },
     {
       "name":"Question everything",
-      "description":"Random lottery wins, special money saving offers, dangerous virus attacks or blackmailed with a very private video of yours. Attackers will put victims under pressure either with a generous offer or by threatening them, so they can't think rational anymore and do thoughtless things. <br>Stay calm. Nothing is for free and you are propably not the 1,000,000th user winning a reward.  Secondly, do your updates and trust your computer system. It protects your data from unallowed access.",
+      "description":"Random lottery wins, special money saving offers, dangerous virus attacks or blackmails with very private videos of yours. Attackers will put victims under pressure either with a generous offer or by threatening them, so they can't think rational anymore and do thoughtless things. <br>Stay calm. Nothing is for free and you are propably not the 1,000,000th user winning a reward.  Secondly, do your updates and trust your computer system. It protects your data from unallowed access.",
       "link":""
     }
   ],
   "mail":[
     {
       "name":"Fake E-mail address and spoofing",
-      "description":"To simplify how emails work: See e-mails just like regular letters made out of paper. Usually the postman delivers all letters into your mailbox. However this doesn't deny anyone else from creating a fake letter, writing any name in the senders field and putting it into your mailbox aswell. E-mails work very similar in that sense so be sceptical with the senders field.",
+      "description":"To simplify how E-mails work: See e-mails just like regular letters made out of paper. Usually the postman delivers all letters into your mailbox. However this doesn't restrain anyone else from creating a fake letter, writing any name in the senders field and putting it into your mailbox as well. E-mails work very similar so be sceptical with the senders field.",
       "link":"https://en.wikipedia.org/wiki/Email_spoofing"
     },{
       "name":"Verifying the sender of an e-mail",
@@ -58,7 +58,7 @@
     },
     {
       "name":"Spam",
-      "description":"E-mails you don't have requested. Most of them are harmless but still unwanted. The reason why you get spam could be a security leak of a service your are using or furthermore untrustfull services could have sold your data to 3rd parties. Another reason could be guessing e-mail addresses by computationally combining firstnames, lastnames and a mail provider.",
+      "description":"E-mails you don't have requested. Most of them are harmless but still unwanted. The reason why you get spam could be a security leak of a service you are using or furthermore untrustfull services could have sold your data to 3rd parties. Another reason could be guessing e-mail addresses by computationally combining firstnames, lastnames and a mail provider.",
       "link":"https://en.wikipedia.org/wiki/Email_spam"
     },
     {
@@ -68,7 +68,7 @@
     },
     {
       "name":"Urgent Notifications and Confirmation",
-      "description":"Account validation and customer service. These are reasons why valid companies send out authentic e-mails. You should always ask yourself: 'Did I request the e-mail?' When in doubt go to the official page by a searchengine and check yourself.",
+      "description":"Account validation and customer service. These are reasons why valid companies send out authentic e-mails. You should always ask yourself: 'Did I request the e-mail?' When in doubt go to the official page by a search engine and check yourself.",
       "link":""
     }
   ]

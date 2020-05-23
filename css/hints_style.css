@@ -1,6 +1,5 @@
 
 .hint-box-wrapper {
-
   background-color: var(--light-bg);
   overflow-y: auto;
 }
@@ -19,5 +18,7 @@
 @media only screen and (max-width: 800px)  {
   .hint-item {
     width: 100%;
+    padding: 1rem;
   }
+
 }
