@@ -6,32 +6,32 @@
   },
   {
     "name":"URL Uniform Ressource Locator",
-    "description":"The URL of a website tells you where it comes from. It's a first indication of phishing if the domain name does not match the displayed page. The domain name consists of the words inside the URL between the 'https://' and the ending like '.com', '.de' or '.org'",
+    "description":"A website's URL tells you where it is coming from. If a domain name doesn't match the displayed page, it is most likely a phising website. The domain stands in between the 'https://' and the ending, e.g. '.com'. For example: https://google.com",
     "link":""
   },
   {
     "name":"Domain permutation",
-    "description":"Website URLs could be faked easily by altering a letter or switching some words so that they look very similar to the original one. Be careful with familiar looking links too.",
+    "description":"An URL can be faked easily by taking the original website's name and making only minor changes. Often there is just a single letter altered or the order of some words changed. For example 'micosofts.com' or 'instagramm.com'",
     "link":"https://en.wikipedia.org/wiki/Typosquatting"
   },
   {
     "name":"Spoofed websites",
-    "description":"The seemingly authentic appearance of a website doesn't grant for safe use. The website's user interface can be copied easily with some tools.",
+    "description":"The seemingly authentic appearance of a website doesn't grant for safe use. The website's user interface can be copied by only using simple tools.",
     "link":"https://www.phishing.org/phishing-and-spoofing"
   },
   {
     "name":"Unsecure connection",
-    "description":"The lock in your browser near the URL indicates if the connection is encrypted or not. The open lock signals a unencrypted http connection where all your data is transmitted like a open book. Never enter passwords on a website with a open lock. If you see a closed lock in your browser, a encrypted connection is used and your passwords arrive safe on the other end.",
+    "description":"The lock in your browser near the URL indicates if the connection is encrypted or not. The open lock signals a unencrypted http connection where all your data is transmitted like an open book. Never enter passwords on a website with an open lock. If you see a closed lock in your browser, a encrypted connection is used and your passwords arrive safe on the other end.",
     "link":""
   },
   {
     "name":"Question everything",
-    "description":"Random lottery wins or dangerous virus attacks. Attackers will put you under pressure so you do stupid things. Don't do stupid things and don't believe everything.",
+    "description":"False lottery wins or warnings of virus attacks are often used by attackers to put people under pressure, so they would act imprudent. Don't be credulous, think twice before you act.",
     "link":""
   },
   {
     "name":"Compressed Links",
-    "description":"There are third party services to reduce the length of a hyperlink but they make them unreadable so you don't know where they are leading to. Trusworthy sources would never have reasons to hide their location, as it would make them untrustworthy.",
+    "description":"There are third party services that reduce the length of a hyperlink, which makes them unreadable. In this case you can't see where they are leading to. Trustworthy sources don't have reasons to hide their location, as it would make them look suspicious.",
     "link":"https://en.wikipedia.org/wiki/URL_shortening"
   },
   {
@@ -41,12 +41,12 @@
   },
   {
     "name":"Drive by download",
-    "description":"Upon visiting a website, clicking a link or accessing e-mail attachements, malware could be downloaded in the background without you noticing. Instead of clicking a link you just gave the permission for the download instead.",
+    "description":"Upon visiting a website, clicking a link or accessing e-mail attachements, malware could be downloaded in the background without you noticing. While you think you have clicked a link, you have actually just given the permission for a download instead.",
     "link":"https://en.wikipedia.org/wiki/Drive-by_download"
   },
   {
     "name":"Spam",
-    "description":"E-mails you don't have requested. Most of them are harmless but still unwanted.",
+    "description":"An e-mail you didn't request. Most of them are harmless, still they are unwanted.",
     "link":"https://en.wikipedia.org/wiki/Email_spam"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
     "name":"Advanced Attacks: Fake DNS resolution.",
-    "description":"URLs are unique and translate to a IP address with the so called DNS. DNS messages are unencrypted and not verified so in theory a attacker could place his own DNS server between the original one and your computer and serve you any page with any URL he likes. This is not very likely and just a technical possibility, but if you are in a critical working position the effort of this attack may pay off to the attacker.",
+    "description":"URLs are unique. They translate to an IP address \"Domain Name System\", also called DNS. DNS messages are unencrypted and not verified so in theory a attacker could place his own DNS server between the original one and your computer and serve you any page with any URL he likes. This is not very likely and just a technical possibility, but if you are in a critical working position the effort of this attack may pay off to the attacker.",
     "link":"https://www.welivesecurity.com/2017/02/27/dns-attacks-try-direct-fake-pages/"
   },
   {

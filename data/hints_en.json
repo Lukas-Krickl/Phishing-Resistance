@@ -2,7 +2,7 @@
   "web":[
     {
       "name":"Pay attention to look and feel",
-      "description":"You read all this hints on phishing attacks and become very resistant against them, but few days later when unconsciously browsing the web you may just not think of them and are again vulnerable to phishing. <b>If you take away one thing from Phishing Resistance then let it be paying general attention to the look and feel of websites.</b> If a site is a bit unprofessional, unexpected or not fluent come back to Phishing Resistance, refresh your knowledge and defend yourself against phishing attacks.",
+      "description":"We have all been reading those warnings about phishing attacks that make us believe we are aware and therefore resistant against them. While in fact, it only takes one unaware minute on the internet to be affected by a phishing attack. <b>If you keep one thing about <em>\"Phishing Resistance\"</em> in mind, let it be the fact, that you always pay general attention to the look and feel of websites.</b> If a site is a bit unprofessional, unexpected or suspicious you better come back to <em>\"Phishing Resistance\"</em> and refresh your knowledge, instead of falling for a phishing attack.",
       "link":""
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "name":"Spoofed websites",
-      "description":"Faked websites which look exaclty like the original, but instead of signing into your user account, you just sent your account credentials to some attackers. After you passed them your username and password, they redirect you to the original page and sign you in, so you don't notice what just happened. This can happen very silently and you only realize what happend, when the attackers already did some damage. The easiest way to prevent this, is using your own bookmarked links only, to access the login." ,
+      "description":"Faked websites that look exaclty like the original, but instead of signing into your user account, you will send your account credentials to the attackers. After you have passed them your login details, they will redirect you to the original page and sign you in. Therefore you wouldn't even notice the attack until it has caused damage. To prevent this from happening, use your own bookmarked links or a trustworthy searchengine to access the login." ,
       "link":"https://www.phishing.org/phishing-and-spoofing"
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "name":"Question everything",
-      "description":"Random lottery wins, special money saving offers, dangerous virus attacks or blackmails with very private videos of yours. Attackers will put victims under pressure either with a generous offer or by threatening them, so they can't think rational anymore and do thoughtless things. <br>Stay calm. Nothing is for free and you are propably not the 1,000,000th user winning a reward.  Secondly, do your updates and trust your computer system. It protects your data from unallowed access.",
+      "description":"False lottery wins, money offers, virus attacks or blackmails. Those things are often used by attackers to put people under pressure, so they would act imprudent. If you find yourself in one of these situations, just stay calm. <br>Nothing is for free and you are propably not the 1,000,000th user winning a reward. Furthermore remember doing your system updates and trust your operating system. It will protect your data from others.",
       "link":""
     }
   ],

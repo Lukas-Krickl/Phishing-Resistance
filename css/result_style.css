@@ -2,7 +2,7 @@
   padding: 0;
 }
 
-section button {
+section button, section a {
   margin: 0 1rem;
 }
 
@@ -155,9 +155,8 @@ section button {
 }
 
 @media only screen and (max-width: 650px) {
-  section button {
-    margin: 0;
-
+  section button, section a {
+    margin: 0 !important;
   }
 
   section {
@@ -170,7 +169,7 @@ section button {
   }
 
   .results-box {
-    margin: 0;
+    margin: .5rem;
     padding: 1rem;
     max-height: inherit;
 

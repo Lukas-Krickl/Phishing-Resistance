@@ -1,10 +1,13 @@
+header {
+  grid-template-columns: 10px auto;
+}
+
 .about-main {
   grid-row: 2 / 5;
   justify-self: center;
   display: block;
   max-width: 38rem;
   overflow-y: auto;
-  margin: 2rem 0;
 }
 
 .about-content {
@@ -51,6 +54,7 @@
 
 .about-thanks p {
   text-align: center;
+  padding-bottom: 0 !important;
 }
 
 .about-licence {
@@ -86,7 +90,6 @@
 
   .about-content {
     padding: 0 1rem;
-    height: 140%;
     justify-content: flex-start;
   }
 
