@@ -3,13 +3,13 @@
     "url":"http://sso.raifeisen.at/login/#/identifier/verfueger",
     "ssl": false,
     "file": "../../data/questions/en/phishing_screenshots/raika-ssp1.jpg",
-    "flaws" : [1,2,3,4]
+    "flaws" : [1,2,3,4,12]
   },
   {
     "url":"https://fragatta.cl/document/file/login.php",
     "ssl": true,
     "file": "../../data/questions/en/phishing_screenshots/microsoft-ssp1.jpg",
-    "flaws" : [1,2,3]
+    "flaws" : [1,2,3,12]
   },
   {
     "url":"https://semvice11.000webhostapp.com/ccl.html",
@@ -30,12 +30,6 @@
     "flaws" : [1,2,3,4]
   },
   {
-    "url":"https://www.paypal.com",
-    "ssl": true,
-    "file": "../../data/questions/en/phishing_screenshots/paypal-ssp1.jpg",
-    "flaws" : [12]
-  },
-  {
     "url":"https://N95mask-covid19.com",
     "ssl": true,
     "file": "../../data/questions/en/phishing_screenshots/n95-mask-ssp1.jpg",
@@ -51,7 +45,7 @@
     "url":"http://tv-licence1.com/login.php",
     "ssl": false,
     "file": "../../data/questions/en/phishing_screenshots/giffgaff-ssp1.jpg",
-    "flaws" : [4]
+    "flaws" : [4,12]
   },
   {
     "url":"https://manage.emailsisenseinc.com/",

@@ -60,6 +60,11 @@
     "file": "../../data/questions/en/authentic_screenshots/linkedin-ssa1.jpg"
   },
   {
+    "url":"https://www.paypal.com",
+    "ssl": true,
+    "file": "../../data/questions/en/authentic_screenshots/paypal-ssa1.jpg"
+  },
+  {
     "url":"http://free-cash.com",
     "ssl": false,
     "file": "../../data/questions/en/authentic_screenshots/firefox-safety-ssa1.jpg"

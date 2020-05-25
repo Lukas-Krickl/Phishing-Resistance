@@ -63,6 +63,7 @@ const in_resistance_module = (function () {
     if (hint.link) {
       let a = document.createElement("a");
       a.setAttribute("href", hint.link);
+      a.setAttribute("target", "_blank");
       a.innerHTML = linkText;
       div.appendChild(a);
     }
