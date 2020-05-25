@@ -46,7 +46,7 @@ const firestore_controller_module = (function () {
   Creates a new test_round and appends the id to the users tests
   Afterwards calls the callback with the test_results_ID of the newly created round
   */
-  function newRound(fireUserID, callback) {
+  function newRound(fireUserID, callback, storeNewUserCallback) {
     db.collection("test_results").add({
       corrPhish:0,
       corrAuth:0,
@@ -59,7 +59,10 @@ const firestore_controller_module = (function () {
         tests: firebase.firestore.FieldValue.arrayUnion(test_result_Ref.id)
 
       }).catch(function (error) {
-        console.log("Error adding round ID: ", error);
+        console.log("Error adding round ID");
+        console.log("creating new user");
+        newUserEntry(storeNewUserCallback);
+        return;
       });
 
       callback(test_result_Ref.id);

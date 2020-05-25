@@ -149,7 +149,7 @@ var playModule = (function () {
       firestore.updateStats(storage.getCurrentTestID(), storage.getRoundStats().current);
       if (storage.hasRoundEnded()) {
         storage.nextRound();
-        firestore.newRound(storage.getFireUserID(), storage.storeCurrentTestID);
+        firestore.newRound(storage.getFireUserID(), storage.storeCurrentTestID, storage.storeNewFireUser);
         switchToRoundResults = true;
       }
 
